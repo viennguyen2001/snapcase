@@ -9,6 +9,7 @@
           assign copy_justify = 'center'
           assign copy_align = 'center'
           assign copy_text_align = 'center'
+          assign mobile_heading_size = block.settings.mobile_heading_size | default: 20
           case block.settings.color_scheme
             when 'dark'
               assign text_color = '#ffffff'
@@ -57,7 +58,7 @@
         <article
           class="slide slide--{{ block.settings.text_position }} slide--mobile-{{ block.settings.mobile_text_position }}"
           id="slide-{{ section.id }}-{{ forloop.index }}"
-          style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; --hero-copy-justify: {{ copy_justify }}; --hero-copy-align: {{ copy_align }}; --hero-copy-text-align: {{ copy_text_align }};"
+          style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; --hero-copy-justify: {{ copy_justify }}; --hero-copy-align: {{ copy_align }}; --hero-copy-text-align: {{ copy_text_align }}; --hero-mobile-heading-size: {{ mobile_heading_size }}px;"
           {{ block.shopify_attributes }}
         >
           <picture>
@@ -178,6 +179,16 @@
             { "value": "center-right", "label": "Center right" },
             { "value": "bottom-right", "label": "Bottom right" }
           ]
+        },
+        {
+          "type": "range",
+          "id": "mobile_heading_size",
+          "label": "Mobile heading size",
+          "min": 14,
+          "max": 42,
+          "step": 1,
+          "unit": "px",
+          "default": 20
         },
         {
           "type": "select",
