@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -11,6 +20,7 @@
             "heading": "NOVA Black 3-in-1 Charger",
             "text_position": "center-right",
             "mobile_text_position": "top-left",
+            "mobile_heading_size": 20,
             "color_scheme": "light",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
@@ -29,6 +39,7 @@
             "heading": "SUMMIT 3-in-1 Wireless Charging Station",
             "text_position": "center-right",
             "mobile_text_position": "top-center",
+            "mobile_heading_size": 20,
             "color_scheme": "light",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
@@ -47,6 +58,7 @@
             "heading": "LOC8 URBAN Slim Wallet",
             "text_position": "bottom-left",
             "mobile_text_position": "top-right",
+            "mobile_heading_size": 20,
             "color_scheme": "dark",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
@@ -63,7 +75,10 @@
         "slide_HPiYNi",
         "2"
       ],
-      "settings": {}
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 5
+      }
     },
     "promo": {
       "type": "promo",
@@ -73,7 +88,9 @@
         "alt_text": "Promotion",
         "heading": "FALL INTO SAVINGS!",
         "button": "SHOP NOW",
-        "link": "",
+        "link": "shopify://collections/all",
+        "heading_size": 18,
+        "text_button_gap": 0,
         "text_color": "#ffffff",
         "button_background": "#7d252a",
         "button_text": "#ffffff"
