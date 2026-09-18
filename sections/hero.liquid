@@ -2,9 +2,30 @@
   <div class="slideshow" aria-roledescription="carousel">
     <div class="slides">
       {% for block in section.blocks %}
+        {% liquid
+          assign text_color = '#111111'
+          assign button_background = '#111111'
+          assign button_text = '#ffffff'
+          case block.settings.color_scheme
+            when 'dark'
+              assign text_color = '#ffffff'
+              assign button_background = '#ffffff'
+              assign button_text = '#111111'
+            when 'cream'
+              assign text_color = '#31261f'
+              assign button_background = '#31261f'
+              assign button_text = '#fffaf5'
+            when 'custom'
+              assign text_color = block.settings.custom_text_color
+              assign button_background = block.settings.custom_button_background
+              assign button_text = block.settings.custom_button_text
+          endcase
+        %}
+
         <article
-          class="slide"
+          class="slide slide--{{ block.settings.text_position }}"
           id="slide-{{ section.id }}-{{ forloop.index }}"
+          style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"
           {{ block.shopify_attributes }}
         >
           <picture>
@@ -30,6 +51,10 @@
               {{ 'lifestyle-1' | placeholder_svg_tag: 'slide__placeholder' }}
             {% endif %}
           </picture>
+
+          {% if block.settings.overlay_opacity > 0 %}
+            <span class="slide-overlay" aria-hidden="true"></span>
+          {% endif %}
 
           <div class="hero-copy">
             {% if forloop.first %}
@@ -101,6 +126,69 @@
           "id": "heading",
           "label": "Heading",
           "default": "NOVA Black 3-in-1 Charger"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "default": "center-right",
+          "options": [
+            { "value": "top-left", "label": "Top left" },
+            { "value": "center-left", "label": "Center left" },
+            { "value": "bottom-left", "label": "Bottom left" },
+            { "value": "top-center", "label": "Top center" },
+            { "value": "center", "label": "Center" },
+            { "value": "bottom-center", "label": "Bottom center" },
+            { "value": "top-right", "label": "Top right" },
+            { "value": "center-right", "label": "Center right" },
+            { "value": "bottom-right", "label": "Bottom right" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "label": "Theme color palette",
+          "default": "light",
+          "options": [
+            { "value": "light", "label": "Light — black text / black button" },
+            { "value": "dark", "label": "Dark — white text / white button" },
+            { "value": "cream", "label": "Cream — warm brown palette" },
+            { "value": "custom", "label": "Custom colors" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "custom_text_color",
+          "label": "Custom text color",
+          "default": "#111111"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_background",
+          "label": "Custom button color",
+          "default": "#111111"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_text",
+          "label": "Custom button text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Image overlay color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Image overlay opacity",
+          "min": 0,
+          "max": 80,
+          "step": 5,
+          "unit": "%",
+          "default": 0
         },
         {
           "type": "text",

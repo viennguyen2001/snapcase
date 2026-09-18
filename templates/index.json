@@ -8,6 +8,8 @@
           "settings": {
             "heading": "NOVA Black 3-in-1 Charger",
             "button": "SHOP NOW",
+            "text_position": "center-right",
+            "color_scheme": "light",
             "benefit": "BASED IN THE USA"
           }
         },
@@ -16,6 +18,8 @@
           "settings": {
             "heading": "SUMMIT 3-in-1 Wireless Charging Station",
             "button": "SHOP NOW",
+            "text_position": "center-right",
+            "color_scheme": "light",
             "benefit": "30 DAYS MONEY BACK"
           }
         },
@@ -24,6 +28,8 @@
           "settings": {
             "heading": "LOC8 URBAN Slim Wallet",
             "button": "SHOP NOW",
+            "text_position": "center-right",
+            "color_scheme": "light",
             "benefit": "FREE RETURNS"
           }
         }
