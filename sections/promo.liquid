@@ -1,4 +1,4 @@
-<section class="wrap promo promo--mobile-{{ section.settings.mobile_text_position }}">
+<section class="wrap promo">
   {% if section.settings.image != blank or section.settings.mobile_image != blank %}
     <div
       class="promo-banner"
@@ -56,23 +56,6 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "FALL INTO SAVINGS!" },
     { "type": "text", "id": "button", "label": "Button label", "default": "SHOP NOW" },
     { "type": "url", "id": "link", "label": "Promotion link" },
-    {
-      "type": "select",
-      "id": "mobile_text_position",
-      "label": "Mobile text position",
-      "default": "center-left",
-      "options": [
-        { "value": "top-left", "label": "Top left" },
-        { "value": "center-left", "label": "Center left" },
-        { "value": "bottom-left", "label": "Bottom left" },
-        { "value": "top-center", "label": "Top center" },
-        { "value": "center", "label": "Center" },
-        { "value": "bottom-center", "label": "Bottom center" },
-        { "value": "top-right", "label": "Top right" },
-        { "value": "center-right", "label": "Center right" },
-        { "value": "bottom-right", "label": "Bottom right" }
-      ]
-    },
     { "type": "color", "id": "text_color", "label": "Text color", "default": "#ffffff" },
     { "type": "color", "id": "button_background", "label": "Button color", "default": "#7d252a" },
     { "type": "color", "id": "button_text", "label": "Button text color", "default": "#ffffff" }

@@ -27,22 +27,23 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  gap: 10px;
   color: var(--promo-text);
 }
 
 .promo-copy h2 {
-  margin: 0 0 22px;
+  margin: 0 0 10px;
   color: inherit;
-  font-size: clamp(24px, 1.65vw, 34px);
+  font-size: clamp(22px, 1.45vw, 30px);
   font-weight: 700;
 }
 
 .promo-copy .button {
-  min-width: 190px;
-  min-height: 66px;
-  padding: 0 24px;
+  min-width: 170px;
+  min-height: 54px;
+  padding: 0 22px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.2;
   background: var(--promo-button-bg);
   color: var(--promo-button-text);
@@ -68,39 +69,14 @@
 
   .promo-copy h2 {
     max-width: 80%;
-    margin-bottom: 16px;
-    font-size: clamp(20px, 5.5vw, 24px);
+    margin-bottom: 8px;
+    font-size: 20px;
   }
 
   .promo-copy .button {
-    min-width: 180px;
-    min-height: 50px;
-    padding: 12px 24px;
-  }
-
-  .promo--mobile-top-left .promo-copy,
-  .promo--mobile-top-center .promo-copy,
-  .promo--mobile-top-right .promo-copy {
-    justify-content: flex-start;
-  }
-
-  .promo--mobile-bottom-left .promo-copy,
-  .promo--mobile-bottom-center .promo-copy,
-  .promo--mobile-bottom-right .promo-copy {
-    justify-content: flex-end;
-  }
-
-  .promo--mobile-top-center .promo-copy,
-  .promo--mobile-center .promo-copy,
-  .promo--mobile-bottom-center .promo-copy {
-    align-items: center;
-    text-align: center;
-  }
-
-  .promo--mobile-top-right .promo-copy,
-  .promo--mobile-center-right .promo-copy,
-  .promo--mobile-bottom-right .promo-copy {
-    align-items: flex-end;
-    text-align: right;
+    min-width: 160px;
+    min-height: 44px;
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
