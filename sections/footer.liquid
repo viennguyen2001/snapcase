@@ -1,4 +1,132 @@
-<footer class="footer"><div class="wrap footer-grid"><div><h3>{{ section.settings.about_heading | escape }}</h3><div class="rte">{{ section.settings.about }}</div></div><div><h3>{{ section.settings.menu_heading | escape }}</h3>{% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title | escape }}</a>{% else %}<a href="{{ routes.all_products_collection_url }}">{{ 'general.all_products' | t }}</a><a href="{{ routes.search_url }}">{{ 'general.search' | t }}</a>{% endfor %}</div><div><h3>{{ 'general.more' | t }}</h3>{% for policy in shop.policies %}{% if policy.body != blank %}<a href="{{ policy.url }}">{{ policy.title | escape }}</a>{% endif %}{% endfor %}</div><div><h3>{{ section.settings.newsletter_heading | escape }}</h3><p>{{ section.settings.newsletter_text | escape }}</p>{% form 'customer', id: 'NewsletterForm' %}<input type="hidden" name="contact[tags]" value="newsletter"><label class="visually-hidden" for="NewsletterEmail">{{ 'general.email' | t }}</label><input id="NewsletterEmail" type="email" name="contact[email]" placeholder="{{ 'general.email' | t }}" required autocomplete="email">{{ form.errors | default_errors }}{% if form.posted_successfully? %}<p role="status">{{ 'general.subscribed' | t }}</p>{% endif %}<button class="button" type="submit">{{ 'general.subscribe' | t }}</button>{% endform %}</div></div><div class="wrap footer-bottom"><span>© {{ 'now' | date: '%Y' }}, {{ shop.name | escape }}.</span><div class="payments">{% for type in shop.enabled_payment_types %}{{ type | payment_type_svg_tag }}{% endfor %}</div></div>{% if localization.available_countries.size > 1 %}<div class="wrap region">{% form 'localization' %}<label for="Country">{{ 'general.region' | t }}</label><select id="Country" name="country_code">{% for country in localization.available_countries %}<option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>{{ country.name }} ({{ country.currency.iso_code }})</option>{% endfor %}</select><button type="submit">{{ 'general.update' | t }}</button>{% endform %}</div>{% endif %}</footer>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div class="footer__about">
+      <h3>{{ section.settings.about_heading | escape }}</h3>
+      <div class="rte">{{ section.settings.about }}</div>
+
+      {% if section.settings.location != blank %}
+        <p class="footer__address">{{ section.settings.location | escape }}</p>
+      {% endif %}
+
+      {% if section.settings.address != blank %}
+        <p class="footer__address">{{ section.settings.address | escape }}</p>
+      {% endif %}
+
+      {% if section.settings.trademark != blank %}
+        <p class="footer__address">{{ section.settings.trademark | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div>
+      <h3>{{ section.settings.menu_heading | escape }}</h3>
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}">{{ link.title | escape }}</a>
+      {% else %}
+        <a href="{{ routes.contact_url }}">Contact Us</a>
+        <a href="{{ pages['about-us'].url | default: routes.root_url }}">About Us</a>
+        <a href="{{ routes.blogs_url }}">The Journey Blog</a>
+        <a href="{{ routes.all_products_collection_url }}">Corporate Gifting</a>
+      {% endfor %}
+    </div>
+
+    <div>
+      <h3>{{ section.settings.more_heading | escape }}</h3>
+      {% if section.settings.more_menu != blank %}
+        {% for link in section.settings.more_menu.links %}
+          <a href="{{ link.url }}">{{ link.title | escape }}</a>
+        {% endfor %}
+      {% else %}
+        {% for policy in shop.policies %}
+          {% if policy.body != blank %}
+            <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div>
+      <h3>{{ section.settings.newsletter_heading | escape }}</h3>
+      <p>{{ section.settings.newsletter_text | escape }}</p>
+
+      {% form 'customer', id: 'NewsletterForm' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label class="visually-hidden" for="NewsletterEmail">{{ 'general.email' | t }}</label>
+        <input id="NewsletterEmail" type="email" name="contact[email]" placeholder="{{ 'general.email' | t }}" required autocomplete="email">
+        {{ form.errors | default_errors }}
+
+        {% if form.posted_successfully? %}
+          <p role="status">{{ 'general.subscribed' | t }}</p>
+        {% endif %}
+
+        <button class="button" type="submit">{{ 'general.subscribe' | t }}</button>
+      {% endform %}
+
+      {% if section.settings.social_heading != blank %}
+        <h3 class="footer__social-heading">{{ section.settings.social_heading | escape }}</h3>
+      {% endif %}
+
+      <div class="footer__social">
+        {% if section.settings.facebook_url != blank %}
+          <a href="{{ section.settings.facebook_url }}" target="_blank" rel="noopener">Facebook</a>
+        {% endif %}
+        {% if section.settings.instagram_url != blank %}
+          <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">Instagram</a>
+        {% endif %}
+        {% if section.settings.tiktok_url != blank %}
+          <a href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener">TikTok</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <span>© {{ 'now' | date: '%Y' }}, {{ shop.name | escape }}.</span>
+    <div class="payments">
+      {% for type in shop.enabled_payment_types %}
+        {{ type | payment_type_svg_tag }}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if localization.available_countries.size > 1 %}
+    <div class="wrap footer__region">
+      <h3>{{ section.settings.region_heading | escape }}</h3>
+      {% form 'localization', class: 'footer__region-form' %}
+        <label for="Country">{{ 'general.region' | t }}</label>
+        <select id="Country" name="country_code">
+          {% for country in localization.available_countries %}
+            <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+              {{ country.name }} ({{ country.currency.iso_code }})
+            </option>
+          {% endfor %}
+        </select>
+        <button type="submit">{{ 'general.update' | t }}</button>
+      {% endform %}
+    </div>
+  {% endif %}
+</footer>
+
 {% schema %}
-{"name": "Footer", "settings": [{"type": "text", "id": "about_heading", "label": "About heading", "default": "About Journey"}, {"type": "richtext", "id": "about", "label": "About text", "default": "<p>Innovative products to elevate productivity and efficiency.</p>"}, {"type": "text", "id": "menu_heading", "label": "Menu heading", "default": "Get in Touch"}, {"type": "link_list", "id": "menu", "label": "Footer menu"}, {"type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Follow us along our Journey"}, {"type": "text", "id": "newsletter_text", "label": "Newsletter text", "default": "For the latest news and offers, sign up for our newsletter"}], "presets": [{"name": "Footer"}]}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "about_heading", "label": "About heading", "default": "About Journey" },
+    { "type": "richtext", "id": "about", "label": "About text", "default": "<p>JOURNEY is an endeavour in creating innovative products to elevate productivity and efficiency.</p>" },
+    { "type": "text", "id": "location", "label": "Location", "default": "Based in California 🇺🇸" },
+    { "type": "text", "id": "address", "label": "Address", "default": "39899 Balentine Dr, Newark, CA 94560" },
+    { "type": "text", "id": "trademark", "label": "Trademark text", "default": "JOURNEY is trademark of ALOGIC." },
+    { "type": "text", "id": "menu_heading", "label": "Contact menu heading", "default": "Get in Touch" },
+    { "type": "link_list", "id": "menu", "label": "Contact menu" },
+    { "type": "text", "id": "more_heading", "label": "More menu heading", "default": "More" },
+    { "type": "link_list", "id": "more_menu", "label": "More menu" },
+    { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Follow us along our Journey" },
+    { "type": "text", "id": "newsletter_text", "label": "Newsletter text", "default": "For the latest news and offers, sign up for our newsletter" },
+    { "type": "text", "id": "social_heading", "label": "Social heading", "default": "Follow us along our Journey" },
+    { "type": "url", "id": "facebook_url", "label": "Facebook URL" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
+    { "type": "url", "id": "tiktok_url", "label": "TikTok URL" },
+    { "type": "text", "id": "region_heading", "label": "Region heading", "default": "Shop by region" }
+  ],
+  "presets": [{ "name": "Footer" }]
+}
 {% endschema %}
