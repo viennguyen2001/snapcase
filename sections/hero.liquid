@@ -6,6 +6,9 @@
           assign text_color = '#111111'
           assign button_background = '#111111'
           assign button_text = '#ffffff'
+          assign copy_justify = 'center'
+          assign copy_align = 'center'
+          assign copy_text_align = 'center'
           case block.settings.color_scheme
             when 'dark'
               assign text_color = '#ffffff'
@@ -20,12 +23,41 @@
               assign button_background = block.settings.custom_button_background
               assign button_text = block.settings.custom_button_text
           endcase
+
+          case block.settings.text_position
+            when 'top-left'
+              assign copy_justify = 'flex-start'
+              assign copy_align = 'flex-start'
+              assign copy_text_align = 'left'
+            when 'center-left'
+              assign copy_align = 'flex-start'
+              assign copy_text_align = 'left'
+            when 'bottom-left'
+              assign copy_justify = 'flex-end'
+              assign copy_align = 'flex-start'
+              assign copy_text_align = 'left'
+            when 'top-center'
+              assign copy_justify = 'flex-start'
+            when 'bottom-center'
+              assign copy_justify = 'flex-end'
+            when 'top-right'
+              assign copy_justify = 'flex-start'
+              assign copy_align = 'flex-end'
+              assign copy_text_align = 'right'
+            when 'center-right'
+              assign copy_align = 'flex-end'
+              assign copy_text_align = 'right'
+            when 'bottom-right'
+              assign copy_justify = 'flex-end'
+              assign copy_align = 'flex-end'
+              assign copy_text_align = 'right'
+          endcase
         %}
 
         <article
           class="slide slide--{{ block.settings.text_position }}"
           id="slide-{{ section.id }}-{{ forloop.index }}"
-          style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"
+          style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; --hero-copy-justify: {{ copy_justify }}; --hero-copy-align: {{ copy_align }}; --hero-copy-text-align: {{ copy_text_align }};"
           {{ block.shopify_attributes }}
         >
           <picture>
@@ -87,20 +119,6 @@
     {% endif %}
   </div>
 
-  <div class="benefits" role="list">
-    {% for block in section.blocks limit: 3 %}
-      <div class="benefit-item" role="listitem">
-        {% if block.settings.benefit_icon != blank %}
-          {{
-            block.settings.benefit_icon
-            | image_url: width: 96
-            | image_tag: widths: '48, 72, 96', sizes: '24px', loading: 'lazy', alt: ''
-          }}
-        {% endif %}
-        <span>{{ block.settings.benefit | escape }}</span>
-      </div>
-    {% endfor %}
-  </div>
 </section>
 
 {% schema %}
@@ -200,17 +218,6 @@
           "type": "url",
           "id": "link",
           "label": "Link"
-        },
-        {
-          "type": "image_picker",
-          "id": "benefit_icon",
-          "label": "Benefit icon"
-        },
-        {
-          "type": "text",
-          "id": "benefit",
-          "label": "Benefit text",
-          "default": "BASED IN THE USA"
         }
       ]
     }
@@ -223,24 +230,21 @@
           "type": "slide",
           "settings": {
             "heading": "NOVA Black 3-in-1 Charger",
-            "button": "SHOP NOW",
-            "benefit": "BASED IN THE USA"
+            "button": "SHOP NOW"
           }
         },
         {
           "type": "slide",
           "settings": {
             "heading": "SUMMIT 3-in-1 Wireless Charging Station",
-            "button": "SHOP NOW",
-            "benefit": "30 DAYS MONEY BACK"
+            "button": "SHOP NOW"
           }
         },
         {
           "type": "slide",
           "settings": {
             "heading": "LOC8 URBAN Slim Wallet",
-            "button": "SHOP NOW",
-            "benefit": "FREE RETURNS"
+            "button": "SHOP NOW"
           }
         }
       ]
