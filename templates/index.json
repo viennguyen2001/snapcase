@@ -35,7 +35,7 @@
             "image": "shopify://shop_images/Option_2_D-2_39d35f8a-07c0-4755-b4f7-2735c1870485.webp",
             "mobile_image": "shopify://shop_images/Option_2_M-B-2_c17d7177-d4dc-4efe-8d6b-5ed21dd4ee8f.webp",
             "heading": "SUMMIT 3-in-1 Wireless Charging Station",
-            "text_position": "bottom-left",
+            "text_position": "top-right",
             "color_scheme": "light",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
@@ -43,7 +43,7 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0,
             "button": "SHOP NOW",
-            "link": ""
+            "link": "shopify://collections/all"
           }
         },
         "2": {
@@ -52,15 +52,15 @@
             "image": "shopify://shop_images/LOC8_Urban_Slim_Wallet_Homepage_-_Banner.webp",
             "mobile_image": "shopify://shop_images/LOC8_Urban_Slim_Wallet_Homepage_-_Banner_Mobile.webp",
             "heading": "LOC8 URBAN Slim Wallet",
-            "text_position": "center-right",
-            "color_scheme": "light",
+            "text_position": "bottom-left",
+            "color_scheme": "dark",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
             "custom_button_text": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
             "button": "SHOP NOW",
-            "link": ""
+            "link": "shopify://collections/all"
           }
         }
       },
