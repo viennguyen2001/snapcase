@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,10 +15,18 @@
         "0": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/novablk-banner-1.webp",
+            "mobile_image": "shopify://shop_images/novablk-mbanner-1.webp",
             "heading": "NOVA Black 3-in-1 Charger",
+            "text_position": "bottom-right",
+            "color_scheme": "custom",
+            "custom_text_color": "#111111",
+            "custom_button_background": "#111111",
+            "custom_button_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
             "button": "SHOP NOW",
-            "text_position": "center-right",
-            "color_scheme": "light",
+            "link": "shopify://collections/all",
             "benefit": "BASED IN THE USA"
           }
         },
@@ -17,9 +34,15 @@
           "type": "slide",
           "settings": {
             "heading": "SUMMIT 3-in-1 Wireless Charging Station",
-            "button": "SHOP NOW",
-            "text_position": "center-right",
+            "text_position": "bottom-left",
             "color_scheme": "light",
+            "custom_text_color": "#111111",
+            "custom_button_background": "#111111",
+            "custom_button_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button": "SHOP NOW",
+            "link": "",
             "benefit": "30 DAYS MONEY BACK"
           }
         },
@@ -27,9 +50,15 @@
           "type": "slide",
           "settings": {
             "heading": "LOC8 URBAN Slim Wallet",
-            "button": "SHOP NOW",
             "text_position": "center-right",
             "color_scheme": "light",
+            "custom_text_color": "#111111",
+            "custom_button_background": "#111111",
+            "custom_button_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button": "SHOP NOW",
+            "link": "",
             "benefit": "FREE RETURNS"
           }
         }
@@ -38,16 +67,31 @@
         "0",
         "1",
         "2"
-      ]
+      ],
+      "settings": {}
     },
     "promo": {
-      "type": "promo"
+      "type": "promo",
+      "settings": {
+        "alt_text": "Promotion",
+        "link": ""
+      }
     },
     "best": {
-      "type": "featured-products"
+      "type": "featured-products",
+      "settings": {
+        "title": "Best Sellers",
+        "collection": ""
+      }
     },
     "finder": {
-      "type": "finder-banner"
+      "type": "finder-banner",
+      "settings": {
+        "heading": "What's New",
+        "title": "LOC8 Finder Range",
+        "button": "EXPLORE THE RANGE",
+        "link": ""
+      }
     },
     "why": {
       "type": "why-choose",
@@ -78,7 +122,10 @@
         "reason_1",
         "reason_2",
         "reason_3"
-      ]
+      ],
+      "settings": {
+        "heading": "Why Choose Journey"
+      }
     },
     "media": {
       "type": "media-grid",
@@ -86,20 +133,23 @@
         "0": {
           "type": "tile",
           "settings": {
-            "title": "NOVA: Aesthetic 3-in-1 Wireless Charger"
+            "title": "NOVA: Aesthetic 3-in-1 Wireless Charger",
+            "link": ""
           }
         },
         "1": {
           "type": "tile",
           "settings": {
-            "title": "REEVUS: Trackable Water Bottle"
+            "title": "REEVUS: Trackable Water Bottle",
+            "link": ""
           }
         }
       },
       "block_order": [
         "0",
         "1"
-      ]
+      ],
+      "settings": {}
     },
     "collections": {
       "type": "collection-grid",
@@ -107,19 +157,22 @@
         "0": {
           "type": "collection",
           "settings": {
-            "title": "Chargers"
+            "title": "Chargers",
+            "collection": ""
           }
         },
         "1": {
           "type": "collection",
           "settings": {
-            "title": "Lifestyle Essentials"
+            "title": "Lifestyle Essentials",
+            "collection": ""
           }
         },
         "2": {
           "type": "collection",
           "settings": {
-            "title": "LOC8 Trackers"
+            "title": "LOC8 Trackers",
+            "collection": ""
           }
         }
       },
@@ -127,10 +180,18 @@
         "0",
         "1",
         "2"
-      ]
+      ],
+      "settings": {
+        "heading": "Our Products"
+      }
     },
     "wide": {
-      "type": "wide-banner"
+      "type": "wide-banner",
+      "settings": {
+        "heading": "LOC8 Versa Wallets",
+        "button": "SHOP NOW",
+        "link": ""
+      }
     },
     "press": {
       "type": "testimonials",
@@ -161,10 +222,17 @@
         "quote_1",
         "quote_2",
         "quote_3"
-      ]
+      ],
+      "settings": {
+        "title": "Designed for everyday life"
+      }
     },
     "blog": {
-      "type": "blog-posts"
+      "type": "blog-posts",
+      "settings": {
+        "heading": "The Journey Blog",
+        "blog": ""
+      }
     }
   },
   "order": [
