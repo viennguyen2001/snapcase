@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -91,7 +100,7 @@
         "link": "shopify://collections/all",
         "heading_size": 16,
         "text_button_gap": 0,
-        "button_width": 120,
+        "button_width": 150,
         "button_height": 40,
         "button_font_size": 14,
         "text_color": "#ffffff",
