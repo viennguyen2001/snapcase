@@ -12,6 +12,23 @@
     "hero": {
       "type": "hero",
       "blocks": {
+        "slide_ehzjPJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/novablk-banner-1.webp",
+            "mobile_image": "shopify://shop_images/novablk-mbanner-1.webp",
+            "heading": "NOVA Black 3-in-1 Charger",
+            "text_position": "center-right",
+            "color_scheme": "light",
+            "custom_text_color": "#111111",
+            "custom_button_background": "#111111",
+            "custom_button_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button": "SHOP NOW",
+            "link": "shopify://collections/all"
+          }
+        },
         "0": {
           "type": "slide",
           "settings": {
@@ -65,6 +82,7 @@
         }
       },
       "block_order": [
+        "slide_ehzjPJ",
         "0",
         "1",
         "2"
@@ -80,6 +98,7 @@
         "heading": "FALL INTO SAVINGS!",
         "button": "SHOP NOW",
         "link": "",
+        "mobile_text_position": "center-left",
         "text_color": "#ffffff",
         "button_background": "#7d252a",
         "button_text": "#ffffff"
