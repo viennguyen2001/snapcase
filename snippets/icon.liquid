@@ -1,0 +1,4 @@
+{% doc %}
+@param {string} name - Icon name
+{% enddoc %}
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">{% case name %}{% when 'search' %}<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>{% when 'cart' %}<path d="M2 3h3l3 13h11l3-10H6M9 20h.01M18 20h.01"/>{% when 'account' %}<circle cx="12" cy="7" r="4"/><path d="M4 22c0-9 16-9 16 0"/>{% when 'menu' %}<path d="M3 6h18M3 12h18M3 18h18"/>{% endcase %}</svg>

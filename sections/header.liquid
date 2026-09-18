@@ -1,0 +1,169 @@
+{% liquid
+  assign announcement = section.settings.announcement | default: 'FALL INTO SAVINGS | Up To 25% OFF'
+  assign utility_text = section.settings.utility | default: 'Corporate Gifting →'
+%}
+
+<div class="announcement">{{ announcement | escape }}</div>
+
+<div class="utility">
+  <span>{{ utility_text | escape }}</span>
+  <a href="{{ routes.search_url }}">{{ 'general.search' | t }}</a>
+</div>
+
+<header class="header wrap">
+  <details class="mobile-menu">
+    <summary aria-label="{{ 'general.menu' | t }}">
+      {% render 'icon', name: 'menu' %}
+    </summary>
+
+    <nav class="mobile-panel">
+      {% render 'header-navigation', section: section %}
+    </nav>
+  </details>
+
+  <a class="logo" href="{{ routes.root_url }}">
+    {% if section.settings.logo != blank %}
+      {{
+        section.settings.logo
+        | image_url: width: 360
+        | image_tag: widths: '180, 360', alt: shop.name
+      }}
+    {% else %}
+      {{ section.settings.brand | escape }}
+    {% endif %}
+  </a>
+
+  <nav class="desktop-menu" aria-label="{{ 'general.menu' | t }}">
+    {% render 'header-navigation', section: section %}
+  </nav>
+
+  <div class="header-tools">
+    <a href="{{ routes.search_url }}" aria-label="{{ 'general.search' | t }}">
+      {% render 'icon', name: 'search' %}
+    </a>
+
+    {% if shop.customer_accounts_enabled %}
+      <a href="{{ routes.account_url }}" aria-label="{{ 'general.account' | t }}">
+        {% render 'icon', name: 'account' %}
+      </a>
+    {% endif %}
+
+    <a href="{{ routes.cart_url }}" aria-label="{{ 'cart.title' | t }}">
+      {% render 'icon', name: 'cart' %}
+      {% if cart.item_count > 0 %}
+        <small>{{ cart.item_count }}</small>
+      {% endif %}
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand",
+      "label": "Brand name",
+      "default": "JOURNEY"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu"
+    },
+    {
+      "type": "text",
+      "id": "announcement",
+      "label": "Announcement",
+      "default": "FALL INTO SAVINGS | Up To 25% OFF"
+    },
+    {
+      "type": "text",
+      "id": "utility",
+      "label": "Small top line",
+      "default": "Corporate Gifting →"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Mega menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Top-level menu title",
+          "default": "Charging"
+        },
+        {
+          "type": "link_list",
+          "id": "submenu",
+          "label": "Menu links"
+        },
+        {
+          "type": "text",
+          "id": "fallback_links",
+          "label": "Reference link labels (comma separated)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Card 1 image"
+        },
+        {
+          "type": "text",
+          "id": "caption_1",
+          "label": "Card 1 caption"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Card 1 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Card 2 image"
+        },
+        {
+          "type": "text",
+          "id": "caption_2",
+          "label": "Card 2 caption"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Card 2 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Card 3 image"
+        },
+        {
+          "type": "text",
+          "id": "caption_3",
+          "label": "Card 3 caption"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Card 3 link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

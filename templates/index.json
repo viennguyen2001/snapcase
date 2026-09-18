@@ -1,0 +1,176 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "0": {
+          "type": "slide",
+          "settings": {
+            "heading": "NOVA Black 3-in-1 Charger",
+            "button": "SHOP NOW",
+            "benefit": "BASED IN THE USA"
+          }
+        },
+        "1": {
+          "type": "slide",
+          "settings": {
+            "heading": "SUMMIT 3-in-1 Wireless Charging Station",
+            "button": "SHOP NOW",
+            "benefit": "30 DAYS MONEY BACK"
+          }
+        },
+        "2": {
+          "type": "slide",
+          "settings": {
+            "heading": "LOC8 URBAN Slim Wallet",
+            "button": "SHOP NOW",
+            "benefit": "FREE RETURNS"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "promo": {
+      "type": "promo"
+    },
+    "best": {
+      "type": "featured-products"
+    },
+    "finder": {
+      "type": "finder-banner"
+    },
+    "why": {
+      "type": "why-choose",
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "title": "BASED IN THE USA",
+            "text": "Local Shipping. Local Support."
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "title": "30 DAYS MONEY BACK",
+            "text": "100% Satisfaction Guaranteed."
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "title": "FREE RETURNS",
+            "text": "Hassle Free Returns."
+          }
+        }
+      },
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3"
+      ]
+    },
+    "media": {
+      "type": "media-grid",
+      "blocks": {
+        "0": {
+          "type": "tile",
+          "settings": {
+            "title": "NOVA: Aesthetic 3-in-1 Wireless Charger"
+          }
+        },
+        "1": {
+          "type": "tile",
+          "settings": {
+            "title": "REEVUS: Trackable Water Bottle"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1"
+      ]
+    },
+    "collections": {
+      "type": "collection-grid",
+      "blocks": {
+        "0": {
+          "type": "collection",
+          "settings": {
+            "title": "Chargers"
+          }
+        },
+        "1": {
+          "type": "collection",
+          "settings": {
+            "title": "Lifestyle Essentials"
+          }
+        },
+        "2": {
+          "type": "collection",
+          "settings": {
+            "title": "LOC8 Trackers"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "wide": {
+      "type": "wide-banner"
+    },
+    "press": {
+      "type": "testimonials",
+      "blocks": {
+        "quote_1": {
+          "type": "quote",
+          "settings": {
+            "quote": "Overall, this is a useful accessory that might make your workspace a little tidier and keep you more organized.",
+            "author": "Mark Sparrow"
+          }
+        },
+        "quote_2": {
+          "type": "quote",
+          "settings": {
+            "quote": "Based on its quality and functionality, Journey products are uniquely great everyday accessories.",
+            "author": "Tyler Hayes"
+          }
+        },
+        "quote_3": {
+          "type": "quote",
+          "settings": {
+            "quote": "The Rapid Trio is just what I want from a multi-device charger.",
+            "author": "Gerald Lynch"
+          }
+        }
+      },
+      "block_order": [
+        "quote_1",
+        "quote_2",
+        "quote_3"
+      ]
+    },
+    "blog": {
+      "type": "blog-posts"
+    }
+  },
+  "order": [
+    "hero",
+    "promo",
+    "best",
+    "finder",
+    "why",
+    "media",
+    "collections",
+    "wide",
+    "press",
+    "blog"
+  ]
+}

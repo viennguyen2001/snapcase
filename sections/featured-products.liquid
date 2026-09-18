@@ -1,0 +1,17 @@
+{% if section.settings.collection != blank and section.settings.collection.products_count > 0 %}
+  <section class="wrap section-space">
+    <div class="section-heading">
+      <h2>{{ section.settings.title | escape }}</h2>
+      <a href="{{ section.settings.collection.url }}">{{ 'general.view_more' | t }} ↗</a>
+    </div>
+
+    <div class="product-rail">
+      {% for product in section.settings.collection.products limit: 10 %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{"name": "Featured Products", "settings": [{"type": "text", "id": "title", "label": "Heading", "default": "Best Sellers"}, {"type": "collection", "id": "collection", "label": "Collection"}], "presets": [{"name": "Featured Products"}]}
+{% endschema %}

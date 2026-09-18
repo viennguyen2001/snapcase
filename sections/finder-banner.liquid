@@ -1,0 +1,15 @@
+<section class="wrap section-space">
+  <h2>{{ section.settings.heading | escape }}</h2>
+  {% if section.settings.image != blank %}
+    <div class="finder">
+      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy', alt: section.settings.title }}
+      <div class="finder-copy">
+        <h2>{{ section.settings.title | escape }}</h2>
+        {% if section.settings.link != blank %}<a class="button" href="{{ section.settings.link }}">{{ section.settings.button | escape }}</a>{% endif %}
+      </div>
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+{"name": "Finder Banner", "settings": [{"type": "text", "id": "heading", "label": "Section heading", "default": "What's New"}, {"type": "text", "id": "title", "label": "Banner heading", "default": "LOC8 Finder Range"}, {"type": "text", "id": "button", "label": "Button", "default": "EXPLORE THE RANGE"}, {"type": "image_picker", "id": "image", "label": "Image"}, {"type": "url", "id": "link", "label": "Link"}], "presets": [{"name": "Finder Banner"}]}
+{% endschema %}

@@ -1,0 +1,4 @@
+<section class="wrap section-space"><h1>{{ blog.title | escape }}</h1>{% paginate blog.articles by 12 %}<div class="category-grid">{% for article in blog.articles %}<article>{% if article.image %}<a href="{{ article.url }}">{{ article.image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'article-image' }}</a>{% endif %}<h2><a href="{{ article.url }}">{{ article.title | escape }}</a></h2><p>{{ article.excerpt_or_content | strip_html | truncate: 180 }}</p></article>{% endfor %}</div>{{ paginate | default_pagination }}{% endpaginate %}</section>
+{% schema %}
+{"name": "Main Blog", "settings": [], "presets": [{"name": "Main Blog"}]}
+{% endschema %}

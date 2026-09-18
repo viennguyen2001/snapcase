@@ -1,0 +1,104 @@
+{% liquid
+  assign heading = section.settings.heading | default: 'Why Choose Journey'
+%}
+
+<section class="why-choose section-space">
+  <div class="wrap">
+    <h2 class="why-choose__heading">{{ heading | escape }}</h2>
+
+    <div class="why-choose__grid" role="list">
+      {% for block in section.blocks %}
+        <article class="why-choose__item" role="listitem" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            {{
+              block.settings.image
+              | image_url: width: 160
+              | image_tag:
+                widths: '48, 80, 120, 160',
+                sizes: '48px',
+                loading: 'lazy',
+                class: 'why-choose__icon',
+                alt: block.settings.title
+            }}
+          {% endif %}
+
+          <div>
+            {% if block.settings.title != blank %}
+              <h3>{{ block.settings.title | escape }}</h3>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text | escape }}</p>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why choose Journey",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Choose Journey"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "BASED IN THE USA"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Local Shipping. Local Support."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why choose Journey",
+      "blocks": [
+        {
+          "type": "reason",
+          "settings": {
+            "title": "BASED IN THE USA",
+            "text": "Local Shipping. Local Support."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "30 DAYS MONEY BACK",
+            "text": "100% Satisfaction Guaranteed."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "FREE RETURNS",
+            "text": "Hassle Free Returns."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,4 @@
+{% if section.settings.blog != blank %}<section class="wrap section-space"><div class="section-heading"><h2>{{ section.settings.heading | escape }}</h2><a href="{{ section.settings.blog.url }}">{{ 'general.view_all' | t }} ↗</a></div><div class="category-grid">{% for article in section.settings.blog.articles limit: 3 %}<article>{% if article.image %}<a href="{{ article.url }}">{{ article.image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'article-image' }}</a>{% endif %}<h3><a href="{{ article.url }}">{{ article.title | escape }}</a></h3><p class="muted">{{ article.excerpt_or_content | strip_html | truncate: 180 }}</p></article>{% endfor %}</div></section>{% endif %}
+{% schema %}
+{"name": "Blog Posts", "settings": [{"type": "text", "id": "heading", "label": "Heading", "default": "The Journey Blog"}, {"type": "blog", "id": "blog", "label": "Blog"}], "presets": [{"name": "Blog Posts"}]}
+{% endschema %}

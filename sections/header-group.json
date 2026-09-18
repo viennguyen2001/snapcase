@@ -1,0 +1,60 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {},
+      "blocks": {
+        "mega_0": {
+          "type": "mega_menu",
+          "settings": {
+            "title": "Charging",
+            "fallback_links": "Wireless Chargers,Wall Chargers,Power Banks,Car Chargers,Accessories",
+            "caption_1": "NOVA Charger",
+            "caption_2": "SUMMIT Charger",
+            "caption_3": "SWIV Charger"
+          }
+        },
+        "mega_1": {
+          "type": "mega_menu",
+          "settings": {
+            "title": "Lifestyle Gear",
+            "fallback_links": "Deskmats,Laptop Sleeves,Water Bottles,Wallets,Key Organizers,Apple Watch Straps",
+            "caption_1": "REEVUS Water Bottle",
+            "caption_2": "ALTI Deskmat",
+            "caption_3": "LOC8 Key Organizer"
+          }
+        },
+        "mega_2": {
+          "type": "mega_menu",
+          "settings": {
+            "title": "Trackers",
+            "fallback_links": "LOC8 Fobs & Tags,LOC8 Wallets",
+            "caption_1": "LOC8 Finder Card",
+            "caption_2": "LOC8 MagSafe Wallet",
+            "caption_3": "LOC8 Passport Wallet"
+          }
+        },
+        "mega_3": {
+          "type": "mega_menu",
+          "settings": {
+            "title": "Discover",
+            "fallback_links": "About,Contact,Returns,Shipping",
+            "caption_1": "All Products",
+            "caption_2": "The Journey Blog"
+          }
+        }
+      },
+      "block_order": [
+        "mega_0",
+        "mega_1",
+        "mega_2",
+        "mega_3"
+      ]
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

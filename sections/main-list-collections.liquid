@@ -1,0 +1,4 @@
+<section class="wrap section-space"><h1>{{ 'general.collections' | t }}</h1><div class="category-grid">{% for collection in collections %}<a href="{{ collection.url }}">{% if collection.image %}{{ collection.image | image_url: width: 800 | image_tag: loading: 'lazy' }}{% endif %}<h2>{{ collection.title | escape }}</h2></a>{% endfor %}</div></section>
+{% schema %}
+{"name": "Main List Collections", "settings": [], "presets": [{"name": "Main List Collections"}]}
+{% endschema %}

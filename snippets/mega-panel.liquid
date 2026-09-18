@@ -1,0 +1,75 @@
+{% doc %}
+  Renders a mega menu panel with category links and promotional cards.
+
+  @param {link} [link] - The parent navigation link.
+  @param {block} [block] - The matching mega menu block.
+{% enddoc %}
+
+<div class="mega-panel">
+  <div class="mega-inner wrap">
+    <div class="mega-links">
+      <a
+        class="mega-label"
+        href="{{ link.url | default: routes.all_products_collection_url }}"
+      >
+        {{ link.title | default: block.settings.title | escape }}
+      </a>
+
+      {% assign children = link.links %}
+      {% if block.settings.submenu != blank %}
+        {% assign children = block.settings.submenu.links %}
+      {% endif %}
+
+      {% if children != blank %}
+        {% for child in children %}
+          <a href="{{ child.url }}">{{ child.title | escape }}</a>
+
+          {% for grandchild in child.links %}
+            <a class="mega-grandchild" href="{{ grandchild.url }}">
+              {{ grandchild.title | escape }}
+            </a>
+          {% endfor %}
+        {% endfor %}
+      {% else %}
+        {% assign labels = block.settings.fallback_links | split: ',' %}
+        {% for label in labels %}
+          <a href="{{ routes.all_products_collection_url }}">
+            {{ label | strip | escape }}
+          </a>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    {% if block != nil %}
+      <div class="mega-cards">
+        {% for index in (1..3) %}
+          {% liquid
+            assign image_key = 'image_' | append: index
+            assign caption_key = 'caption_' | append: index
+            assign url_key = 'url_' | append: index
+            assign caption = block.settings[caption_key]
+          %}
+
+          {% if block.settings[image_key] != blank %}
+            <a
+              class="mega-card"
+              href="{{ block.settings[url_key] | default: routes.all_products_collection_url }}"
+            >
+              {{
+                block.settings[image_key]
+                | image_url: width: 900
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '320, 480, 640, 900',
+                  sizes: '(min-width: 801px) 25vw, 30vw',
+                  alt: caption
+              }}
+
+              <span>{{ caption | escape }}</span>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

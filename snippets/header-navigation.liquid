@@ -1,0 +1,54 @@
+{% doc %}
+  Renders the desktop and mobile navigation, including mega menu panels.
+
+  @param {section} section - Header section settings and blocks.
+{% enddoc %}
+
+{% if section.settings.menu != blank %}
+  {% for link in section.settings.menu.links %}
+    {% assign matched_block = nil %}
+    {% assign link_key = link.title | handleize %}
+
+    {% for block in section.blocks %}
+      {% assign block_key = block.settings.title | handleize %}
+      {% if block_key == link_key %}
+        {% assign matched_block = block %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    {% if link.links != blank or matched_block != nil %}
+      <details class="nav-item">
+        <summary>
+          {{ link.title | escape }}
+          <span class="chevron" aria-hidden="true"></span>
+        </summary>
+
+        {% render 'mega-panel', link: link, block: matched_block %}
+      </details>
+    {% else %}
+      <a
+        class="nav-link"
+        href="{{ link.url }}"
+        {% if link.current %}aria-current="page"{% endif %}
+      >
+        {{ link.title | escape }}
+      </a>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% for block in section.blocks %}
+    <details class="nav-item" {{ block.shopify_attributes }}>
+      <summary>
+        {{ block.settings.title | escape }}
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+
+      {% render 'mega-panel', block: block %}
+    </details>
+  {% endfor %}
+
+  <a class="nav-link" href="{{ routes.all_products_collection_url }}">
+    {{ 'general.all_products' | t }}
+  </a>
+{% endif %}

@@ -1,0 +1,46 @@
+{
+  "general": {
+    "skip": "Skip to content",
+    "search": "Search",
+    "account": "Account",
+    "menu": "Menu",
+    "all_products": "All products",
+    "view_more": "View more",
+    "view_all": "View all",
+    "slide": "Go to slide {{ number }}",
+    "more": "More",
+    "email": "E-mail",
+    "subscribe": "Subscribe",
+    "subscribed": "Thanks for subscribing.",
+    "region": "Shop by region",
+    "update": "Update",
+    "continue": "Continue shopping",
+    "no_results": "No results found. Try another search.",
+    "name": "Name",
+    "message": "Message",
+    "send": "Send message",
+    "sent": "Thank you. Your message has been sent.",
+    "collections": "Collections",
+    "not_found": "The page you are looking for could not be found.",
+    "home": "Back to home"
+  },
+  "products": {
+    "sale": "Sale",
+    "choose": "+ View options",
+    "variant": "Options",
+    "quantity": "Quantity",
+    "add": "Add to cart",
+    "sold_out": "Sold out",
+    "sort": "Sort by",
+    "empty": "No products in this collection yet."
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty",
+    "remove": "Remove",
+    "note": "Order note",
+    "total": "Subtotal",
+    "shipping": "Shipping and taxes calculated at checkout.",
+    "checkout": "Checkout"
+  }
+}

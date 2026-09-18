@@ -1,0 +1,162 @@
+<section class="wrap hero-section">
+  <div class="slideshow" aria-roledescription="carousel">
+    <div class="slides">
+      {% for block in section.blocks %}
+        <article
+          class="slide"
+          id="slide-{{ section.id }}-{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+        >
+          <picture>
+            {% if block.settings.mobile_image != blank %}
+              <source
+                media="(max-width: 700px)"
+                srcset="{{ block.settings.mobile_image | image_url: width: 900 }}"
+              >
+            {% endif %}
+
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 2600
+                | image_tag:
+                  loading: 'eager',
+                  fetchpriority: 'high',
+                  widths: '900, 1200, 1600, 2200, 2600',
+                  sizes: '100vw',
+                  alt: block.settings.heading
+              }}
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'slide__placeholder' }}
+            {% endif %}
+          </picture>
+
+          <div class="hero-copy">
+            {% if forloop.first %}
+              <h1>{{ block.settings.heading | escape }}</h1>
+            {% else %}
+              <h2>{{ block.settings.heading | escape }}</h2>
+            {% endif %}
+
+            {% if block.settings.link != blank %}
+              <a class="button light" href="{{ block.settings.link }}">
+                {{ block.settings.button | escape }}
+              </a>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if section.blocks.size > 1 %}
+      <div class="slide-controls">
+        {% for block in section.blocks %}
+          <button
+            type="button"
+            data-slide="{{ forloop.index0 }}"
+            aria-label="{{ 'general.slide' | t: number: forloop.index }}"
+            {% if forloop.first %}aria-current="true"{% endif %}
+          ></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="benefits" role="list">
+    {% for block in section.blocks limit: 3 %}
+      <div class="benefit-item" role="listitem">
+        {% if block.settings.benefit_icon != blank %}
+          {{
+            block.settings.benefit_icon
+            | image_url: width: 96
+            | image_tag: widths: '48, 72, 96', sizes: '24px', loading: 'lazy', alt: ''
+          }}
+        {% endif %}
+        <span>{{ block.settings.benefit | escape }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero slideshow",
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Desktop image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "NOVA Black 3-in-1 Charger"
+        },
+        {
+          "type": "text",
+          "id": "button",
+          "label": "Button",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "benefit_icon",
+          "label": "Benefit icon"
+        },
+        {
+          "type": "text",
+          "id": "benefit",
+          "label": "Benefit text",
+          "default": "BASED IN THE USA"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero slideshow",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "NOVA Black 3-in-1 Charger",
+            "button": "SHOP NOW",
+            "benefit": "BASED IN THE USA"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "SUMMIT 3-in-1 Wireless Charging Station",
+            "button": "SHOP NOW",
+            "benefit": "30 DAYS MONEY BACK"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "LOC8 URBAN Slim Wallet",
+            "button": "SHOP NOW",
+            "benefit": "FREE RETURNS"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

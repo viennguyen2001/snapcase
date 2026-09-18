@@ -1,0 +1,4 @@
+<article class="wrap section-space narrow"><h1>{{ article.title | escape }}</h1>{% if article.image %}{{ article.image | image_url: width: 1400 | image_tag: class: 'article-image' }}{% endif %}<div class="rte">{{ article.content }}</div></article>
+{% schema %}
+{"name": "Main Article", "settings": [], "presets": [{"name": "Main Article"}]}
+{% endschema %}

@@ -1,0 +1,10 @@
+<section class="wrap promo">
+  {% if section.settings.image != blank %}
+    <a href="{{ section.settings.link | default: routes.all_products_collection_url }}">
+      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy', alt: section.settings.alt_text }}
+    </a>
+  {% endif %}
+</section>
+{% schema %}
+{"name": "Promo", "settings": [{"type": "image_picker", "id": "image", "label": "Promotion image"}, {"type": "text", "id": "alt_text", "label": "Image alt text", "default": "Promotion"}, {"type": "url", "id": "link", "label": "Promotion link"}], "presets": [{"name": "Promo"}]}
+{% endschema %}

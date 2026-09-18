@@ -1,0 +1,4 @@
+<section class="wrap section-space narrow"><h1>{{ page.title | escape }}</h1><div class="rte">{{ page.content }}</div>{% form 'contact' %}{{ form.errors | default_errors }}{% if form.posted_successfully? %}<p role="status">{{ 'general.sent' | t }}</p>{% endif %}<label for="ContactName">{{ 'general.name' | t }}</label><input id="ContactName" name="contact[name]" autocomplete="name"><label for="ContactEmail">{{ 'general.email' | t }}</label><input id="ContactEmail" name="contact[email]" type="email" autocomplete="email" required><label for="ContactMessage">{{ 'general.message' | t }}</label><textarea id="ContactMessage" name="contact[body]" rows="6" required></textarea><button class="button">{{ 'general.send' | t }}</button>{% endform %}</section>
+{% schema %}
+{"name": "Main Contact", "settings": [], "presets": [{"name": "Main Contact"}]}
+{% endschema %}
