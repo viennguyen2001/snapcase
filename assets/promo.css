@@ -73,4 +73,30 @@
     min-height: 44px;
     padding: 12px 24px;
   }
+
+  .promo--mobile-top-left .promo-copy,
+  .promo--mobile-top-center .promo-copy,
+  .promo--mobile-top-right .promo-copy {
+    justify-content: flex-start;
+  }
+
+  .promo--mobile-bottom-left .promo-copy,
+  .promo--mobile-bottom-center .promo-copy,
+  .promo--mobile-bottom-right .promo-copy {
+    justify-content: flex-end;
+  }
+
+  .promo--mobile-top-center .promo-copy,
+  .promo--mobile-center .promo-copy,
+  .promo--mobile-bottom-center .promo-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .promo--mobile-top-right .promo-copy,
+  .promo--mobile-center-right .promo-copy,
+  .promo--mobile-bottom-right .promo-copy {
+    align-items: flex-end;
+    text-align: right;
+  }
 }
