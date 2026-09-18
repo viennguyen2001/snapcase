@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -10,7 +19,7 @@
             "mobile_image": "shopify://shop_images/novablk-mbanner-1.webp",
             "heading": "NOVA Black 3-in-1 Charger",
             "text_position": "center-right",
-            "mobile_text_position": "center",
+            "mobile_text_position": "top-left",
             "color_scheme": "light",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
@@ -21,32 +30,14 @@
             "link": "shopify://collections/all"
           }
         },
-        "0": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/novablk-banner-1.webp",
-            "mobile_image": "shopify://shop_images/novablk-mbanner-1.webp",
-            "heading": "NOVA Black 3-in-1 Charger",
-            "text_position": "center-right",
-            "mobile_text_position": "center",
-            "color_scheme": "custom",
-            "custom_text_color": "#111111",
-            "custom_button_background": "#111111",
-            "custom_button_text": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "button": "SHOP NOW",
-            "link": "shopify://collections/all"
-          }
-        },
-        "1": {
+        "slide_HPiYNi": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Option_2_D-2_39d35f8a-07c0-4755-b4f7-2735c1870485.webp",
             "mobile_image": "shopify://shop_images/Option_2_M-B-2_c17d7177-d4dc-4efe-8d6b-5ed21dd4ee8f.webp",
             "heading": "SUMMIT 3-in-1 Wireless Charging Station",
-            "text_position": "top-right",
-            "mobile_text_position": "center",
+            "text_position": "center-right",
+            "mobile_text_position": "top-center",
             "color_scheme": "light",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
@@ -54,7 +45,7 @@
             "overlay_color": "#000000",
             "overlay_opacity": 0,
             "button": "SHOP NOW",
-            "link": "shopify://collections/all"
+            "link": ""
           }
         },
         "2": {
@@ -64,7 +55,7 @@
             "mobile_image": "shopify://shop_images/LOC8_Urban_Slim_Wallet_Homepage_-_Banner_Mobile.webp",
             "heading": "LOC8 URBAN Slim Wallet",
             "text_position": "bottom-left",
-            "mobile_text_position": "center",
+            "mobile_text_position": "top-right",
             "color_scheme": "dark",
             "custom_text_color": "#111111",
             "custom_button_background": "#111111",
@@ -78,8 +69,7 @@
       },
       "block_order": [
         "slide_ehzjPJ",
-        "0",
-        "1",
+        "slide_HPiYNi",
         "2"
       ],
       "settings": {}
@@ -93,7 +83,6 @@
         "heading": "FALL INTO SAVINGS!",
         "button": "SHOP NOW",
         "link": "",
-        "mobile_text_position": "center-left",
         "text_color": "#ffffff",
         "button_background": "#7d252a",
         "button_text": "#ffffff"
