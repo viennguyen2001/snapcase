@@ -55,7 +55,7 @@
         %}
 
         <article
-          class="slide slide--{{ block.settings.text_position }}"
+          class="slide slide--{{ block.settings.text_position }} slide--mobile-{{ block.settings.mobile_text_position }}"
           id="slide-{{ section.id }}-{{ forloop.index }}"
           style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; --hero-copy-justify: {{ copy_justify }}; --hero-copy-align: {{ copy_align }}; --hero-copy-text-align: {{ copy_text_align }};"
           {{ block.shopify_attributes }}
@@ -150,6 +150,23 @@
           "id": "text_position",
           "label": "Text position",
           "default": "center-right",
+          "options": [
+            { "value": "top-left", "label": "Top left" },
+            { "value": "center-left", "label": "Center left" },
+            { "value": "bottom-left", "label": "Bottom left" },
+            { "value": "top-center", "label": "Top center" },
+            { "value": "center", "label": "Center" },
+            { "value": "bottom-center", "label": "Bottom center" },
+            { "value": "top-right", "label": "Top right" },
+            { "value": "center-right", "label": "Center right" },
+            { "value": "bottom-right", "label": "Bottom right" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Mobile text position",
+          "default": "center",
           "options": [
             { "value": "top-left", "label": "Top left" },
             { "value": "center-left", "label": "Center left" },
