@@ -32,9 +32,11 @@
   max-width: none;
 }
 
-.slide-controls { gap: 2px; right: 3%; bottom: 18px; }
-.slide-controls button { width: 18px; padding: 5px; }
-.slide-controls button[aria-current="true"]:after { width: 20px; }
+.slide-controls { gap: 14px; right: 3%; bottom: 18px; align-items: center; }
+.slide-controls button { width: 14px; height: 14px; padding: 0; }
+.slide-controls button:after { width: 14px; height: 14px; background: #1118; }
+.slide-controls button[aria-current="true"] { width: 40px; }
+.slide-controls button[aria-current="true"]:after { width: 40px; height: 14px; background: #111; border-radius: 8px; }
 
 @media (max-width: 700px) {
   .slide { aspect-ratio: 640 / 724; }
