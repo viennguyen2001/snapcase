@@ -32,6 +32,10 @@
   max-width: none;
 }
 
+.slide-controls { gap: 2px; right: 3%; bottom: 18px; }
+.slide-controls button { width: 18px; padding: 5px; }
+.slide-controls button[aria-current="true"]:after { width: 20px; }
+
 @media (max-width: 700px) {
   .hero-copy {
     width: 100%;

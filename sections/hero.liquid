@@ -1,5 +1,10 @@
 <section class="wrap hero-section">
-  <div class="slideshow" aria-roledescription="carousel">
+  <div
+    class="slideshow"
+    aria-roledescription="carousel"
+    data-autoplay="{{ section.settings.autoplay }}"
+    data-autoplay-interval="{{ section.settings.autoplay_speed | times: 1000 }}"
+  >
     <div class="slides">
       {% for block in section.blocks %}
         {% liquid
@@ -125,6 +130,10 @@
 {% schema %}
 {
   "name": "Hero slideshow",
+  "settings": [
+    { "type": "checkbox", "id": "autoplay", "label": "Automatically change slides", "default": true },
+    { "type": "range", "id": "autoplay_speed", "label": "Slide interval", "min": 3, "max": 12, "step": 1, "unit": "s", "default": 5 }
+  ],
   "blocks": [
     {
       "type": "slide",

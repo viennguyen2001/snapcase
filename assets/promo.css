@@ -32,9 +32,9 @@
 }
 
 .promo-copy h2 {
-  margin: 0 0 10px;
+  margin: 0 0 var(--promo-text-button-gap);
   color: inherit;
-  font-size: clamp(22px, 1.45vw, 30px);
+  font-size: var(--promo-heading-size);
   font-weight: 700;
 }
 
@@ -69,8 +69,8 @@
 
   .promo-copy h2 {
     max-width: 80%;
-    margin-bottom: 8px;
-    font-size: 20px;
+    margin-bottom: var(--promo-text-button-gap);
+    font-size: min(var(--promo-heading-size), 24px);
   }
 
   .promo-copy .button {
