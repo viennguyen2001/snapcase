@@ -52,10 +52,6 @@
 }
 
 @media (max-width: 700px) {
-  .promo {
-    width: calc(100% - 64px);
-  }
-
   .promo-banner { border-radius: 14px; }
 
   .promo-banner picture img {
