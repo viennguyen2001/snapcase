@@ -63,7 +63,7 @@
         <article
           class="slide slide--{{ block.settings.text_position }} slide--mobile-{{ block.settings.mobile_text_position }}"
           id="slide-{{ section.id }}-{{ forloop.index }}"
-          style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; --hero-copy-justify: {{ copy_justify }}; --hero-copy-align: {{ copy_align }}; --hero-copy-text-align: {{ copy_text_align }}; --hero-mobile-heading-size: {{ mobile_heading_size }}px;"
+          style="--hero-text: {{ text_color }}; --hero-button-bg: {{ button_background }}; --hero-button-text: {{ button_text }}; --hero-button-width: {{ block.settings.button_width | default: 180 }}px; --hero-button-height: {{ block.settings.button_height | default: 52 }}px; --hero-button-font-size: {{ block.settings.button_font_size | default: 16 }}px; --hero-overlay: {{ block.settings.overlay_color }}; --hero-overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; --hero-copy-justify: {{ copy_justify }}; --hero-copy-align: {{ copy_align }}; --hero-copy-text-align: {{ copy_text_align }}; --hero-mobile-heading-size: {{ mobile_heading_size }}px;"
           {{ block.shopify_attributes }}
         >
           <picture>
@@ -199,6 +199,9 @@
           "unit": "px",
           "default": 20
         },
+        { "type": "range", "id": "button_width", "label": "Button width", "min": 100, "max": 360, "step": 5, "unit": "px", "default": 180 },
+        { "type": "range", "id": "button_height", "label": "Button height", "min": 40, "max": 100, "step": 2, "unit": "px", "default": 52 },
+        { "type": "range", "id": "button_font_size", "label": "Button text size", "min": 10, "max": 28, "step": 1, "unit": "px", "default": 16 },
         {
           "type": "select",
           "id": "color_scheme",

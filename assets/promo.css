@@ -39,11 +39,12 @@
 }
 
 .promo-copy .button {
-  min-width: 170px;
-  min-height: 54px;
+  width: var(--promo-button-width);
+  min-width: 0;
+  min-height: var(--promo-button-height);
   padding: 0 22px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: var(--promo-button-font-size);
   line-height: 1.2;
   background: var(--promo-button-bg);
   color: var(--promo-button-text);
@@ -74,9 +75,9 @@
   }
 
   .promo-copy .button {
-    min-width: 160px;
-    min-height: 44px;
+    width: min(var(--promo-button-width), 100%);
+    min-height: var(--promo-button-height);
     padding: 10px 20px;
-    font-size: 14px;
+    font-size: var(--promo-button-font-size);
   }
 }

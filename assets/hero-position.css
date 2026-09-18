@@ -29,14 +29,18 @@
 
 .hero-copy .button {
   width: max-content;
+  width: var(--hero-button-width);
+  min-height: var(--hero-button-height);
+  padding: 0 20px;
+  font-size: var(--hero-button-font-size);
   max-width: none;
 }
 
-.slide-controls { gap: 14px; right: 3%; bottom: 18px; align-items: center; }
-.slide-controls button { width: 14px; height: 14px; padding: 0; }
-.slide-controls button:after { width: 14px; height: 14px; background: #1118; }
-.slide-controls button[aria-current="true"] { width: 40px; }
-.slide-controls button[aria-current="true"]:after { width: 40px; height: 14px; background: #111; border-radius: 8px; }
+.slide-controls { gap: 10px; right: 3%; bottom: 18px; align-items: center; }
+.slide-controls button { width: 10px; height: 10px; padding: 0; }
+.slide-controls button:after { width: 10px; height: 10px; background: #1118; }
+.slide-controls button[aria-current="true"] { width: 32px; }
+.slide-controls button[aria-current="true"]:after { width: 32px; height: 10px; background: #111; border-radius: 8px; }
 
 @media (max-width: 700px) {
   .slide { aspect-ratio: 640 / 724; }
