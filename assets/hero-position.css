@@ -22,11 +22,15 @@
 
 .hero-copy h1,
 .hero-copy h2 {
-  max-width: 100%;
+  width: max-content;
+  max-width: none;
   margin-bottom: 4px;
 }
 
-.hero-copy .button { max-width: 100%; }
+.hero-copy .button {
+  width: max-content;
+  max-width: none;
+}
 
 @media (max-width: 700px) {
   .hero-copy {
@@ -34,6 +38,12 @@
     height: 33.3333%;
     padding: 7%;
     gap: 12px;
+  }
+
+  .hero-copy h1,
+  .hero-copy h2 {
+    width: auto;
+    max-width: 100%;
   }
 
   .slide--top-left .hero-copy,
