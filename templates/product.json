@@ -12,7 +12,7 @@
       "block_order": ["highlight_1", "highlight_2", "highlight_3", "highlight_4"],
       "settings": {}
     },
-    "story": { "type": "product-story", "settings": {} },
+    "story": { "type": "product-story", "settings": { "eyebrow": "Find My built in", "heading": "Can't find your bottle again?", "text": "<p>Not with REEVUS, it alerts you when left behind and you can track its live location on your iPhone.</p>" } },
     "features": {
       "type": "product-feature-grid",
       "blocks": {
@@ -21,10 +21,11 @@
         "feature_3": { "type": "feature", "settings": { "heading": "Keeps Drinks Cold or Hot" } }
       },
       "block_order": ["feature_1", "feature_2", "feature_3"],
-      "settings": {}
+      "settings": { "heading": "" }
     },
-    "richtext": { "type": "product-richtext", "settings": {} },
-    "tabs": { "type": "product-tabs", "settings": {} },
+    "richtext": { "type": "product-richtext", "settings": { "eyebrow": "Built for your everyday", "heading": "Hydrate and capture with one bottle", "text": "<p>Reevus is a high performance bottle that doubles as a secure magnetic phone stand.</p>" } },
+    "setup": { "type": "product-setup-guide", "settings": {} },
+    "tabs": { "type": "product-tabs", "settings": { "eyebrow": "Product details", "heading": "Want to know more?", "features": "<p>Built-in Apple Find My tracker lets you locate the bottle using the Apple Find My app.</p><p>MagSafe-compatible magnetic mount works as a phone stand, holder, or carry loop.</p><p>Thermal insulation keeps drinks hot for up to 12 hours or cold for up to 24 hours.</p>", "specifications": "<p><strong>Bottle Specifications</strong><br>Dimensions: 80mm (Dia) x 205.3mm (Height)<br>Volume: 700ml (23.67 fl oz)<br>Weight: 395g (13.92oz)<br>Material: Stainless steel bottle, ABS lid, zinc alloy, magnets and silicon sealing ring.</p><p><strong>Warranty:</strong> 1 Year</p>", "faqs": "<p><strong>Does REEVUS work when the bottle is empty?</strong><br>Yes. Track your bottle on your iPhone’s Find My app any time.</p><p><strong>How long does REEVUS keep drinks hot or cold?</strong><br>Cold for 24 hours and hot for 12.</p>" } },
     "promise": {
       "type": "product-promise",
       "blocks": {
@@ -34,7 +35,8 @@
       "block_order": ["promise_1", "promise_2"],
       "settings": {}
     },
+    "reviews": { "type": "product-reviews", "settings": {} },
     "blog": { "type": "blog-posts", "settings": { "heading": "The Journey Blog" } }
   },
-  "order": ["main", "highlights", "story", "features", "richtext", "tabs", "promise", "blog"]
+  "order": ["main", "highlights", "story", "features", "richtext", "setup", "tabs", "promise", "reviews", "blog"]
 }

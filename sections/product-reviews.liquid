@@ -1,0 +1,34 @@
+<section class="wrap section-space product-reviews" id="product-reviews">
+  <div class="section-heading"><div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape }}</h2></div><span>{{ section.settings.summary | escape }}</span></div>
+  <div class="product-review-grid">
+    {% for block in section.blocks %}
+      <article class="product-review" {{ block.shopify_attributes }}>
+        <div class="product-review-stars">★★★★★</div>
+        <h3>{{ block.settings.title | escape }}</h3>
+        <p>{{ block.settings.text | escape }}</p>
+        <small>{{ block.settings.author | escape }}</small>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product reviews",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Customer Reviews" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by people on the move" },
+    { "type": "text", "id": "summary", "label": "Summary", "default": "Based on 9 reviews" }
+  ],
+  "blocks": [{ "type": "review", "name": "Review", "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Great iPhone water bottle" },
+    { "type": "textarea", "id": "text", "label": "Review", "default": "I really like how this holds my water bottle and iPhone together especially when I’m working out" },
+    { "type": "text", "id": "author", "label": "Author", "default": "Edward Barker (Sarasota, US)" }
+  ]}],
+  "presets": [{ "name": "Product reviews", "blocks": [
+    { "type": "review", "settings": { "title": "Great iPhone water bottle", "author": "Edward Barker (Sarasota, US)" } },
+    { "type": "review", "settings": { "title": "Almost Perfect!", "author": "Ms AMJ (Lansing, US)" } },
+    { "type": "review", "settings": { "title": "Love The Finish", "author": "Emma Collins (Los Angeles, US)" } }
+  ] }]
+}
+{% endschema %}
