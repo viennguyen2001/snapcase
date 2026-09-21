@@ -1,5 +1,15 @@
 {% assign chosen = product.selected_or_first_available_variant %}
 
+<div class="wrap product-breadcrumb">
+  <a href="{{ routes.root_url }}">Home</a>
+  <span aria-hidden="true">/</span>
+  {% if product.collections.first %}
+    <a href="{{ product.collections.first.url }}">{{ product.collections.first.title | escape }}</a>
+    <span aria-hidden="true">/</span>
+  {% endif %}
+  <span>{{ product.title | escape }}</span>
+</div>
+
 <section class="wrap section-space product-page product-page--journey">
   <div class="product-gallery">
     {% for media in product.media %}
@@ -73,6 +83,12 @@
                     data-option-value="{{ value | escape }}"
                     data-option-position="{{ option.position }}"
                   >
+                    {% if option.position == 1 %}
+                      {% assign option_variant = product.variants | where: 'option1', value | first %}
+                      {% if option_variant.featured_image %}
+                        {{ option_variant.featured_image | image_url: width: 96 | image_tag: loading: 'lazy', alt: value }}
+                      {% endif %}
+                    {% endif %}
                     {{ value | escape }}
                   </button>
                 {% endfor %}
