@@ -1,10 +1,19 @@
 .product-breadcrumb { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; font-size: 12px; color: #656565; }
 .product-breadcrumb a { text-decoration: underline; text-underline-offset: 3px; }
 
+@media (min-width: 1200px) {
+  .wrap { width: calc(100% - 128px); max-width: 1360px; }
+}
+
+@media (max-width: 700px) {
+  .wrap { width: calc(100% - 32px); }
+  .section-space { margin-block: 42px; }
+}
+
 .product-page--journey {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
-  gap: 64px;
+  gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
 
