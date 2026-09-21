@@ -1,4 +1,17 @@
 function setupProductInteractions(scope = document) {
+  scope.querySelectorAll('.product-gallery').forEach((gallery) => {
+    if (gallery.dataset.galleryReady === 'true') return;
+    gallery.dataset.galleryReady = 'true';
+    const media = [...gallery.querySelectorAll('.product-media')];
+    gallery.querySelectorAll('[data-product-media]').forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        media.forEach((item) => item.classList.toggle('product-media--hidden', item.dataset.mediaId !== thumb.dataset.productMedia));
+        gallery.querySelectorAll('.product-thumb').forEach((item) => item.classList.remove('is-selected'));
+        thumb.classList.add('is-selected');
+      });
+    });
+  });
+
   scope.querySelectorAll('.product-form').forEach((form) => {
     if (form.dataset.productReady === 'true') return;
     form.dataset.productReady = 'true';

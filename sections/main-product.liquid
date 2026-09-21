@@ -12,28 +12,42 @@
 
 <section class="wrap section-space product-page product-page--journey">
   <div class="product-gallery">
-    {% for media in product.media %}
-      <div class="product-media" data-media-id="{{ media.id }}">
-        {% case media.media_type %}
-          {% when 'image' %}
-            {{
-              media
-              | image_url: width: 1600
-              | image_tag:
-                loading: 'lazy',
-                widths: '600, 900, 1200, 1600',
-                sizes: '(min-width: 900px) 50vw, 100vw',
-                alt: media.alt | default: product.title
-            }}
-          {% when 'video' %}
-            {{ media | video_tag: controls: true, preload: 'metadata' }}
-          {% when 'external_video' %}
-            {{ media | external_video_tag }}
-          {% when 'model' %}
-            {{ media | model_viewer_tag }}
-        {% endcase %}
+    <div class="product-gallery-stage">
+      {% for media in product.media %}
+        <div class="product-media{% unless forloop.first %} product-media--hidden{% endunless %}" data-media-id="{{ media.id }}">
+          {% case media.media_type %}
+            {% when 'image' %}
+              {{
+                media
+                | image_url: width: 1800
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '700, 1000, 1400, 1800',
+                  sizes: '(min-width: 900px) 55vw, 100vw',
+                  alt: media.alt | default: product.title
+              }}
+            {% when 'video' %}
+              {{ media | video_tag: controls: true, preload: 'metadata' }}
+            {% when 'external_video' %}
+              {{ media | external_video_tag }}
+            {% when 'model' %}
+              {{ media | model_viewer_tag }}
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if product.media.size > 1 %}
+      <div class="product-thumbs" role="list">
+        {% for media in product.media %}
+          {% if media.preview_image %}
+            <button type="button" class="product-thumb{% if forloop.first %} is-selected{% endif %}" data-product-media="{{ media.id }}" aria-label="View product image {{ forloop.index }}">
+              {{ media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: media.alt | default: product.title }}
+            </button>
+          {% endif %}
+        {% endfor %}
       </div>
-    {% endfor %}
+    {% endif %}
   </div>
 
   <div class="product-info product-info--journey">
@@ -49,6 +63,8 @@
     </div>
 
     <p class="price product-price" data-product-price>{{ chosen.price | money }}</p>
+
+    <p class="product-finance">4 interest-free installments available at checkout.</p>
 
     {% if section.settings.shipping_note != blank %}
       <p class="product-shipping-note">{{ section.settings.shipping_note | escape }}</p>
@@ -103,6 +119,11 @@
         <button type="button" data-quantity-minus aria-label="Decrease quantity">−</button>
         <input id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1" step="1">
         <button type="button" data-quantity-plus aria-label="Increase quantity">+</button>
+      </div>
+
+      <div class="product-stock" data-product-stock>
+        <span class="stock-pill stock-pill--in">● In stock</span>
+        <span class="stock-pill stock-pill--low">● Low stock</span>
       </div>
 
       <button
