@@ -1,0 +1,29 @@
+<div class="cart-drawer" data-cart-drawer hidden>
+  <div class="cart-drawer-backdrop" data-cart-close></div>
+  <aside class="cart-drawer-panel" role="dialog" aria-modal="true" aria-label="Cart">
+    <button class="cart-drawer-close" type="button" data-cart-close aria-label="Close cart">×</button>
+    <div class="cart-promo">
+      <div class="cart-promo-mark">JR<br>NY</div>
+      <div class="cart-promo-copy"><strong>{{ section.settings.cart_promo_heading | default: 'FALL INTO SAVINGS' }}</strong><span>{{ section.settings.cart_promo_subheading | default: 'AUTO-APPLIED AT CHECKOUT' }}</span></div>
+      <div class="cart-promo-badge"><small>UP TO</small><b>25%</b><small>OFF</small></div>
+    </div>
+    <div class="cart-perks"><span>FREE RETURNS</span><i></i><span>30 DAYS MONEY BACK</span></div>
+    <div class="cart-drawer-content">
+      <div class="cart-drawer-items" data-cart-items>
+        {% for item in cart.items %}
+          <article class="cart-drawer-item" data-cart-item data-key="{{ item.key }}">
+            <a href="{{ item.url }}">{{ item.image | image_url: width: 180 | image_tag: loading: 'lazy', alt: item.product.title }}</a>
+            <div class="cart-drawer-item-info"><h3>{{ item.product.title | escape }}</h3><p>{{ item.variant.title | escape }}</p><div class="cart-drawer-quantity"><button type="button" data-cart-minus>−</button><span data-cart-qty>{{ item.quantity }}</span><button type="button" data-cart-plus>+</button></div><button type="button" class="cart-remove" data-cart-remove>♧</button></div>
+            <strong class="cart-drawer-line-price">{{ item.final_line_price | money }}</strong>
+          </article>
+        {% endfor %}
+      </div>
+      <div class="cart-drawer-empty" data-cart-empty{% unless cart.empty? %} hidden{% endunless %}>Your cart is empty.</div>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-drawer-total"><strong>Total</strong><strong data-cart-total>{{ cart.total_price | money }}</strong></div>
+      <a class="cart-checkout" href="{{ routes.checkout_url }}" data-cart-checkout>♙ <span>Checkout · <b data-cart-total-copy>{{ cart.total_price | money }}</b></span></a>
+      <div class="cart-trust"><span>★ ★ ★ ★ ★ <b>Excellent</b></span><span>★ <b>Trustpilot</b> &nbsp;2,000+ Review</span></div>
+    </div>
+  </aside>
+</div>

@@ -20,14 +20,17 @@
     {{ 'hero-position.css' | asset_url | stylesheet_tag }}
     {{ 'promo.css' | asset_url | stylesheet_tag }}
     {{ 'product.css' | asset_url | stylesheet_tag }}
+    {{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <script src="{{ 'slideshow-autoplay.js' | asset_url }}" defer></script>
     <script src="{{ 'product-interactions.js' | asset_url }}" defer></script>
+    <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
   </head>
   <body>
     <a class="skip" href="#main">{{ 'general.skip' | t }}</a>
     {% sections 'header-group' %}
     <main id="main">{{ content_for_layout }}</main>
     {% sections 'footer-group' %}
+    {% render 'cart-drawer' %}
   </body>
 </html>

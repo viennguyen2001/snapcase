@@ -48,7 +48,7 @@
       </a>
     {% endif %}
 
-    <a href="{{ routes.cart_url }}" aria-label="{{ 'cart.title' | t }}">
+    <a href="{{ routes.cart_url }}" aria-label="{{ 'cart.title' | t }}" data-cart-open>
       {% render 'icon', name: 'cart' %}
       {% if cart.item_count > 0 %}
         <small>{{ cart.item_count }}</small>
