@@ -1,5 +1,4 @@
 <section class="wrap section-space product-richtext{% if section.settings.align == 'center' %} product-richtext--center{% endif %}">
-  {% if section.settings.eyebrow != blank %}<p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{% endif %}
   <h2>{{ section.settings.heading | escape }}</h2>
   <div class="rte">{{ section.settings.text }}</div>
 </section>
@@ -8,7 +7,6 @@
 {
   "name": "Product rich text",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Designed for everyday journeys" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Hydrate and capture with one bottle" },
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>From morning commutes to weekend adventures, Reevus is built to move with you.</p>" },
     { "type": "select", "id": "align", "label": "Alignment", "options": [{ "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }], "default": "center" }

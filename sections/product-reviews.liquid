@@ -1,5 +1,5 @@
 <section class="wrap section-space product-reviews" id="product-reviews">
-  <div class="section-heading"><div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape }}</h2></div><span>{{ section.settings.summary | escape }}</span></div>
+  <div class="section-heading"><h2>{{ section.settings.heading | escape }}</h2><span>{{ section.settings.summary | escape }}</span></div>
   <div class="product-review-grid">
     {% for block in section.blocks %}
       <article class="product-review" {{ block.shopify_attributes }}>
@@ -16,8 +16,7 @@
 {
   "name": "Product reviews",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Customer Reviews" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by people on the move" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Customer Reviews" },
     { "type": "text", "id": "summary", "label": "Summary", "default": "Based on 9 reviews" }
   ],
   "blocks": [{ "type": "review", "name": "Review", "settings": [
