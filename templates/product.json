@@ -1,11 +1,40 @@
 {
   "sections": {
-    "main": {
-      "type": "main-product",
+    "main": { "type": "main-product", "settings": {} },
+    "highlights": {
+      "type": "product-highlights",
+      "blocks": {
+        "highlight_1": { "type": "highlight", "settings": { "title": "Locate at all times.", "text": "Stay connected to what matters." } },
+        "highlight_2": { "type": "highlight", "settings": { "title": "Create content.", "text": "Capture the moments along the way." } },
+        "highlight_3": { "type": "highlight", "settings": { "title": "Keep hydrated.", "text": "Your bottle, always within reach." } },
+        "highlight_4": { "type": "highlight", "settings": { "title": "Watch content.", "text": "A smarter way to carry your day." } }
+      },
+      "block_order": ["highlight_1", "highlight_2", "highlight_3", "highlight_4"],
       "settings": {}
-    }
+    },
+    "story": { "type": "product-story", "settings": {} },
+    "features": {
+      "type": "product-feature-grid",
+      "blocks": {
+        "feature_1": { "type": "feature", "settings": { "heading": "Trackable Everywhere" } },
+        "feature_2": { "type": "feature", "settings": { "heading": "Magnetic Phone Mount" } },
+        "feature_3": { "type": "feature", "settings": { "heading": "Keeps Drinks Cold or Hot" } }
+      },
+      "block_order": ["feature_1", "feature_2", "feature_3"],
+      "settings": {}
+    },
+    "richtext": { "type": "product-richtext", "settings": {} },
+    "tabs": { "type": "product-tabs", "settings": {} },
+    "promise": {
+      "type": "product-promise",
+      "blocks": {
+        "promise_1": { "type": "promise", "settings": { "eyebrow": "USA Based", "heading": "Express Shipping Nationwide" } },
+        "promise_2": { "type": "promise", "settings": { "eyebrow": "Free Returns", "heading": "30-Day Money Back Guarantee" } }
+      },
+      "block_order": ["promise_1", "promise_2"],
+      "settings": {}
+    },
+    "blog": { "type": "blog-posts", "settings": { "heading": "The Journey Blog" } }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main", "highlights", "story", "features", "richtext", "tabs", "promise", "blog"]
 }

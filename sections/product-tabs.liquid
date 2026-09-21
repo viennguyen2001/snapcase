@@ -1,0 +1,23 @@
+<section class="wrap section-space product-tabs">
+  <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+  <h2>{{ section.settings.heading | escape }}</h2>
+  <div class="product-tab-list">
+    <details open><summary>Features</summary><div class="rte">{{ section.settings.features }}</div></details>
+    <details><summary>Specifications</summary><div class="rte">{{ section.settings.specifications }}</div></details>
+    <details><summary>FAQs</summary><div class="rte">{{ section.settings.faqs }}</div></details>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product tabs",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Product details" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Want to know more?" },
+    { "type": "richtext", "id": "features", "label": "Features", "default": "<p>Trackable, magnetic, insulated, and designed for daily use.</p>" },
+    { "type": "richtext", "id": "specifications", "label": "Specifications", "default": "<p>Premium stainless steel construction with a leak-proof lid.</p>" },
+    { "type": "richtext", "id": "faqs", "label": "FAQs", "default": "<p>Questions about shipping, care, or returns? We are here to help.</p>" }
+  ],
+  "presets": [{ "name": "Product tabs" }]
+}
+{% endschema %}

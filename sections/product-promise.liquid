@@ -1,0 +1,33 @@
+<section class="wrap section-space product-promise">
+  <div class="section-heading"><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape }}</h2></div>
+  <div class="product-promise-grid">
+    {% for block in section.blocks %}
+      <article class="product-promise-card" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.heading }}{% endif %}
+        <p class="eyebrow">{{ block.settings.eyebrow | escape }}</p>
+        <h3>{{ block.settings.heading | escape }}</h3>
+        <div class="rte">{{ block.settings.text }}</div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product promise",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Journey Promise" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Made for the moments that matter" }
+  ],
+  "blocks": [{ "type": "promise", "name": "Promise", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "USA Based" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Express Shipping Nationwide" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Local support and fast delivery from our U.S. team.</p>" }
+  ]}],
+  "presets": [{ "name": "Product promise", "blocks": [
+    { "type": "promise", "settings": { "eyebrow": "USA Based", "heading": "Express Shipping Nationwide" } },
+    { "type": "promise", "settings": { "eyebrow": "Free Returns", "heading": "30-Day Money Back Guarantee" } }
+  ] }]
+}
+{% endschema %}

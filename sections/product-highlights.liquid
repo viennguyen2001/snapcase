@@ -1,0 +1,42 @@
+<section class="wrap section-space product-highlights">
+  <div class="product-highlight-grid">
+    {% for block in section.blocks %}
+      <article class="product-highlight" {{ block.shopify_attributes }}>
+        {% if block.settings.icon != blank %}
+          {{ block.settings.icon | image_url: width: 180 | image_tag: loading: 'lazy', class: 'product-highlight-icon', alt: block.settings.title }}
+        {% endif %}
+        <h3>{{ block.settings.title | escape }}</h3>
+        {% if block.settings.text != blank %}<p>{{ block.settings.text | escape }}</p>{% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product highlights",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "highlight",
+      "name": "Highlight",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Locate at all times." },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Stay connected to what matters." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product highlights",
+      "blocks": [
+        { "type": "highlight", "settings": { "title": "Locate at all times.", "text": "Stay connected to what matters." } },
+        { "type": "highlight", "settings": { "title": "Create content.", "text": "Capture the moments along the way." } },
+        { "type": "highlight", "settings": { "title": "Keep hydrated.", "text": "Your bottle, always within reach." } },
+        { "type": "highlight", "settings": { "title": "Watch content.", "text": "A smarter way to carry your day." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
