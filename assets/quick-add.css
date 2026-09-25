@@ -188,3 +188,21 @@
   --elare-color: #7d252a;
   --elare-hover-text: #7d252a;
 }
+
+/* Keep button labels above the animated fill so contrast never disappears. */
+.button > *,
+.shopify-payment-button > *,
+.cart-checkout > * {
+  position: relative;
+  z-index: 1;
+  color: inherit !important;
+}
+
+.product-add-button {
+  color: var(--global-button-text, #fff) !important;
+  background-color: var(--elare-color, #7d000c) !important;
+}
+
+.product-add-button .product-add-icon {
+  color: inherit !important;
+}
