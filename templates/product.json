@@ -1,54 +1,246 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
-        "gallery": { "type": "gallery", "settings": {} },
-        "details": { "type": "details", "settings": {} },
-        "options": { "type": "options", "settings": {} },
-        "quantity": { "type": "quantity", "settings": {} },
-        "stock": { "type": "stock", "settings": {} },
-        "purchase": { "type": "purchase", "settings": {} },
-        "promises": { "type": "promises", "settings": {} }
+        "gallery": {
+          "type": "gallery",
+          "settings": {}
+        },
+        "details": {
+          "type": "details",
+          "settings": {
+            "show_vendor": true,
+            "review_text": "9 reviews",
+            "finance_text": "4 interest-free installments available at checkout.",
+            "shipping_note": "Free shipping and 30-day returns"
+          }
+        },
+        "options": {
+          "type": "options",
+          "settings": {
+            "show_option_images": true
+          }
+        },
+        "quantity": {
+          "type": "quantity",
+          "settings": {
+            "label": "Quantity"
+          }
+        },
+        "stock": {
+          "type": "stock",
+          "settings": {
+            "in_stock_text": "In stock",
+            "low_stock_text": "Low stock"
+          }
+        },
+        "purchase": {
+          "type": "purchase",
+          "settings": {
+            "add_label": "Add to cart",
+            "sold_label": "Sold out",
+            "buy_label": "Buy it now",
+            "fill_color": "#7d000c",
+            "border_color": "#7d000c",
+            "text_color": "#7D000C",
+            "hover_text_color": "#7d000c"
+          }
+        },
+        "promises": {
+          "type": "promises",
+          "settings": {
+            "promise_one_title": "USA Based",
+            "promise_one_text": "Local support",
+            "promise_two_title": "Express Shipping",
+            "promise_two_text": "Nationwide delivery",
+            "promise_three_title": "Free Returns",
+            "promise_three_text": "30-day money back guarantee"
+          }
+        }
       },
-      "block_order": ["gallery", "details", "options", "quantity", "stock", "purchase", "promises"],
-      "settings": {}
+      "block_order": [
+        "gallery",
+        "details",
+        "options",
+        "quantity",
+        "stock",
+        "purchase",
+        "promises"
+      ],
+      "settings": {
+        "review_text": "9 reviews",
+        "shipping_note": "Free shipping and 30-day returns",
+        "promise_one_title": "USA Based",
+        "promise_one_text": "Local support",
+        "promise_two_title": "Express Shipping",
+        "promise_two_text": "Nationwide delivery",
+        "promise_three_title": "Free Returns",
+        "promise_three_text": "30-day money back guarantee",
+        "description_eyebrow": "The Journey Promise",
+        "description_heading": "Designed for everyday journeys"
+      }
     },
     "highlights": {
       "type": "product-highlights",
       "blocks": {
-        "highlight_1": { "type": "highlight", "settings": { "title": "Locate at all times." } },
-        "highlight_2": { "type": "highlight", "settings": { "title": "Create content." } },
-        "highlight_3": { "type": "highlight", "settings": { "title": "Keep hydrated." } },
-        "highlight_4": { "type": "highlight", "settings": { "title": "Watch content." } }
+        "highlight_1": {
+          "type": "highlight",
+          "settings": {
+            "title": "Locate at all times.",
+            "text": ""
+          }
+        },
+        "highlight_2": {
+          "type": "highlight",
+          "settings": {
+            "title": "Create content.",
+            "text": ""
+          }
+        },
+        "highlight_3": {
+          "type": "highlight",
+          "settings": {
+            "title": "Keep hydrated.",
+            "text": ""
+          }
+        },
+        "highlight_4": {
+          "type": "highlight",
+          "settings": {
+            "title": "Watch content.",
+            "text": ""
+          }
+        }
       },
-      "block_order": ["highlight_1", "highlight_2", "highlight_3", "highlight_4"],
+      "block_order": [
+        "highlight_1",
+        "highlight_2",
+        "highlight_3",
+        "highlight_4"
+      ],
       "settings": {}
     },
-    "story": { "type": "product-story", "settings": { "heading": "Can't find your bottle again?", "text": "<p>Not with REEVUS, it alerts you when left behind and you can track its live location on your iPhone.</p>" } },
+    "story": {
+      "type": "product-story",
+      "settings": {
+        "heading": "Can't find your bottle again?",
+        "text": "<p>Not with REEVUS, it alerts you when left behind and you can track its live location on your iPhone.</p>",
+        "image_position": "left"
+      }
+    },
     "features": {
       "type": "product-feature-grid",
       "blocks": {
-        "feature_1": { "type": "feature", "settings": { "heading": "Trackable Everywhere" } },
-        "feature_2": { "type": "feature", "settings": { "heading": "Magnetic Phone Mount" } },
-        "feature_3": { "type": "feature", "settings": { "heading": "Keeps Drinks Cold or Hot" } }
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "heading": "Trackable Everywhere",
+            "text": "<p>Stay connected wherever the day takes you.</p>"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "heading": "Magnetic Phone Mount",
+            "text": "<p>Stay connected wherever the day takes you.</p>"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "heading": "Keeps Drinks Cold or Hot",
+            "text": "<p>Stay connected wherever the day takes you.</p>"
+          }
+        }
       },
-      "block_order": ["feature_1", "feature_2", "feature_3"],
-      "settings": { "heading": "" }
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
+      "settings": {
+        "heading": ""
+      }
     },
-    "richtext": { "type": "product-richtext", "settings": { "heading": "Hydrate and capture with one bottle", "text": "<p>Reevus is a high performance bottle that doubles as a secure magnetic phone stand.</p>" } },
-    "setup": { "type": "product-setup-guide", "settings": {} },
-    "tabs": { "type": "product-tabs", "settings": { "eyebrow": "Product details", "heading": "Want to know more?", "features": "<p>Built-in Apple Find My tracker lets you locate the bottle using the Apple Find My app.</p><p>MagSafe-compatible magnetic mount works as a phone stand, holder, or carry loop.</p><p>Thermal insulation keeps drinks hot for up to 12 hours or cold for up to 24 hours.</p>", "specifications": "<p><strong>Bottle Specifications</strong><br>Dimensions: 80mm (Dia) x 205.3mm (Height)<br>Volume: 700ml (23.67 fl oz)<br>Weight: 395g (13.92oz)<br>Material: Stainless steel bottle, ABS lid, zinc alloy, magnets and silicon sealing ring.</p><p><strong>Warranty:</strong> 1 Year</p>", "faqs": "<p><strong>Does REEVUS work when the bottle is empty?</strong><br>Yes. Track your bottle on your iPhone’s Find My app any time.</p><p><strong>How long does REEVUS keep drinks hot or cold?</strong><br>Cold for 24 hours and hot for 12.</p>" } },
+    "richtext": {
+      "type": "product-richtext",
+      "settings": {
+        "heading": "Hydrate and capture with one bottle",
+        "text": "<p>Reevus is a high performance bottle that doubles as a secure magnetic phone stand.</p>",
+        "align": "center"
+      }
+    },
+    "setup": {
+      "type": "product-setup-guide",
+      "settings": {
+        "heading": "Setup Guide"
+      }
+    },
+    "tabs": {
+      "type": "product-tabs",
+      "settings": {
+        "eyebrow": "Product details",
+        "heading": "Want to know more?",
+        "features": "<p>Built-in Apple Find My tracker lets you locate the bottle using the Apple Find My app.</p><p>MagSafe-compatible magnetic mount works as a phone stand, holder, or carry loop.</p><p>Thermal insulation keeps drinks hot for up to 12 hours or cold for up to 24 hours.</p>",
+        "specifications": "<p><strong>Bottle Specifications</strong><br>Dimensions: 80mm (Dia) x 205.3mm (Height)<br>Volume: 700ml (23.67 fl oz)<br>Weight: 395g (13.92oz)<br>Material: Stainless steel bottle, ABS lid, zinc alloy, magnets and silicon sealing ring.</p><p><strong>Warranty:</strong> 1 Year</p>",
+        "faqs": "<p><strong>Does REEVUS work when the bottle is empty?</strong><br>Yes. Track your bottle on your iPhone’s Find My app any time.</p><p><strong>How long does REEVUS keep drinks hot or cold?</strong><br>Cold for 24 hours and hot for 12.</p>"
+      }
+    },
     "promise": {
       "type": "product-promise",
       "blocks": {
-        "promise_1": { "type": "promise", "settings": { "eyebrow": "USA Based", "heading": "Express Shipping Nationwide" } },
-        "promise_2": { "type": "promise", "settings": { "eyebrow": "Free Returns", "heading": "30-Day Money Back Guarantee" } }
+        "promise_1": {
+          "type": "promise",
+          "settings": {
+            "eyebrow": "USA Based",
+            "heading": "Express Shipping Nationwide",
+            "text": "<p>Local support and fast delivery from our U.S. team.</p>"
+          }
+        },
+        "promise_2": {
+          "type": "promise",
+          "settings": {
+            "eyebrow": "Free Returns",
+            "heading": "30-Day Money Back Guarantee",
+            "text": "<p>Local support and fast delivery from our U.S. team.</p>"
+          }
+        }
       },
-      "block_order": ["promise_1", "promise_2"],
-      "settings": {}
+      "block_order": [
+        "promise_1",
+        "promise_2"
+      ],
+      "settings": {
+        "heading": "THE JOURNEY PROMISE"
+      }
     },
-    "reviews": { "type": "product-reviews", "settings": {} }
+    "reviews": {
+      "type": "product-reviews",
+      "settings": {
+        "heading": "Customer Reviews",
+        "summary": "Based on 9 reviews"
+      }
+    }
   },
-  "order": ["main", "highlights", "story", "features", "richtext", "setup", "tabs", "promise", "reviews"]
+  "order": [
+    "main",
+    "highlights",
+    "story",
+    "features",
+    "richtext",
+    "setup",
+    "tabs",
+    "promise",
+    "reviews"
+  ]
 }
