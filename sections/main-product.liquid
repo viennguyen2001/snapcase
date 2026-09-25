@@ -8,6 +8,23 @@
 {% assign show_stock = true %}
 {% assign show_purchase = true %}
 {% assign show_promises = true %}
+{% assign show_vendor = true %}
+{% assign review_text = section.settings.review_text %}
+{% assign finance_text = '4 interest-free installments available at checkout.' %}
+{% assign shipping_note = section.settings.shipping_note %}
+{% assign show_option_images = true %}
+{% assign quantity_label = 'Quantity' %}
+{% assign in_stock_text = 'In stock' %}
+{% assign low_stock_text = 'Low stock' %}
+{% assign add_button_label = 'Add to cart' %}
+{% assign sold_button_label = 'Sold out' %}
+{% assign buy_button_label = 'Buy it now' %}
+{% assign promise_one_title = section.settings.promise_one_title %}
+{% assign promise_one_text = section.settings.promise_one_text %}
+{% assign promise_two_title = section.settings.promise_two_title %}
+{% assign promise_two_text = section.settings.promise_two_text %}
+{% assign promise_three_title = section.settings.promise_three_title %}
+{% assign promise_three_text = section.settings.promise_three_text %}
 {% if has_product_blocks %}
   {% assign show_gallery = false %}
   {% assign show_details = false %}
@@ -25,6 +42,30 @@
       {% when 'stock' %}{% assign show_stock = true %}
       {% when 'purchase' %}{% assign show_purchase = true %}
       {% when 'promises' %}{% assign show_promises = true %}
+    {% if block.type == 'details' %}
+      {% assign show_vendor = block.settings.show_vendor %}
+      {% assign review_text = block.settings.review_text | default: section.settings.review_text %}
+      {% assign finance_text = block.settings.finance_text %}
+      {% assign shipping_note = block.settings.shipping_note | default: section.settings.shipping_note %}
+    {% elsif block.type == 'options' %}
+      {% assign show_option_images = block.settings.show_option_images %}
+    {% elsif block.type == 'quantity' %}
+      {% assign quantity_label = block.settings.label | default: 'Quantity' %}
+    {% elsif block.type == 'stock' %}
+      {% assign in_stock_text = block.settings.in_stock_text | default: 'In stock' %}
+      {% assign low_stock_text = block.settings.low_stock_text | default: 'Low stock' %}
+    {% elsif block.type == 'purchase' %}
+      {% assign add_button_label = block.settings.add_label | default: 'Add to cart' %}
+      {% assign sold_button_label = block.settings.sold_label | default: 'Sold out' %}
+      {% assign buy_button_label = block.settings.buy_label | default: 'Buy it now' %}
+    {% elsif block.type == 'promises' %}
+      {% assign promise_one_title = block.settings.promise_one_title | default: section.settings.promise_one_title %}
+      {% assign promise_one_text = block.settings.promise_one_text | default: section.settings.promise_one_text %}
+      {% assign promise_two_title = block.settings.promise_two_title | default: section.settings.promise_two_title %}
+      {% assign promise_two_text = block.settings.promise_two_text | default: section.settings.promise_two_text %}
+      {% assign promise_three_title = block.settings.promise_three_title | default: section.settings.promise_three_title %}
+      {% assign promise_three_text = block.settings.promise_three_text | default: section.settings.promise_three_text %}
+    {% endif %}
     {% endcase %}
   {% endfor %}
 {% endif %}
@@ -81,7 +122,7 @@
 
   <div class="product-info product-info--journey">
     {% if show_details %}
-    {% if product.vendor != blank %}
+    {% if show_vendor and product.vendor != blank %}
       <p class="muted product-vendor">{{ product.vendor | escape }}</p>
     {% endif %}
 
@@ -89,15 +130,15 @@
 
     <div class="product-rating" aria-label="{{ product.title | escape }} rating">
       <span aria-hidden="true">★★★★★</span>
-      <a href="#product-reviews">{{ section.settings.review_text | escape }}</a>
+      <a href="#product-reviews">{{ review_text | escape }}</a>
     </div>
 
     <p class="price product-price" data-product-price>{{ chosen.price | money }}</p>
 
-    <p class="product-finance">4 interest-free installments available at checkout.</p>
+    {% if finance_text != blank %}<p class="product-finance">{{ finance_text | escape }}</p>{% endif %}
 
-    {% if section.settings.shipping_note != blank %}
-      <p class="product-shipping-note">{{ section.settings.shipping_note | escape }}</p>
+    {% if shipping_note != blank %}
+      <p class="product-shipping-note">{{ shipping_note | escape }}</p>
     {% endif %}
     {% endif %}
 
@@ -130,7 +171,7 @@
                     data-option-value="{{ value | escape }}"
                     data-option-position="{{ option.position }}"
                   >
-                    {% if option.position == 1 %}
+                    {% if show_option_images and option.position == 1 %}
                       {% assign option_variant = product.variants | where: 'option1', value | first %}
                       {% if option_variant.featured_image %}
                         {{ option_variant.featured_image | image_url: width: 96 | image_tag: loading: 'lazy', alt: value }}
@@ -145,7 +186,7 @@
         </div>
       {% endif %}
 
-      {% if show_quantity %}<label class="product-quantity-label" for="Quantity-{{ section.id }}">{{ 'products.quantity' | t }}</label>
+      {% if show_quantity %}<label class="product-quantity-label" for="Quantity-{{ section.id }}">{{ quantity_label | escape }}</label>
       <div class="quantity-control">
         <button type="button" data-quantity-minus aria-label="Decrease quantity">−</button>
         <input id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1" step="1">
@@ -153,8 +194,8 @@
       </div>{% endif %}
 
       {% if show_stock %}<div class="product-stock" data-product-stock>
-        <span class="stock-pill stock-pill--in">● In stock</span>
-        <span class="stock-pill stock-pill--low">● Low stock</span>
+        <span class="stock-pill stock-pill--in">● {{ in_stock_text | escape }}</span>
+        <span class="stock-pill stock-pill--low">● {{ low_stock_text | escape }}</span>
       </div>{% endif %}
 
       {% if show_purchase %}
@@ -163,21 +204,21 @@
         type="submit"
         name="add"
         data-add-button
-        data-add="{{ 'products.add' | t }}"
-        data-sold="{{ 'products.sold_out' | t }}"
+        data-add="{{ add_button_label | escape }}"
+        data-sold="{{ sold_button_label | escape }}"
         {% unless chosen.available %}disabled{% endunless %}
       >
         <span class="product-add-icon">{% render 'icon', name: 'cart' %}</span>
-        <span>{% if chosen.available %}{{ 'products.add' | t }}{% else %}{{ 'products.sold_out' | t }}{% endif %}</span>
+        <span>{% if chosen.available %}{{ add_button_label | escape }}{% else %}{{ sold_button_label | escape }}{% endif %}</span>
       </button>
 
-      <button class="shopify-payment-button" type="submit" name="checkout">Buy it now</button>{% endif %}
+      <button class="shopify-payment-button" type="submit" name="checkout">{{ buy_button_label | escape }}</button>{% endif %}
     {% endform %}
 
     {% if show_promises %}<div class="product-promises" role="list">
-      <div role="listitem"><strong>{{ section.settings.promise_one_title | escape }}</strong><span>{{ section.settings.promise_one_text | escape }}</span></div>
-      <div role="listitem"><strong>{{ section.settings.promise_two_title | escape }}</strong><span>{{ section.settings.promise_two_text | escape }}</span></div>
-      <div role="listitem"><strong>{{ section.settings.promise_three_title | escape }}</strong><span>{{ section.settings.promise_three_text | escape }}</span></div>
+      <div role="listitem"><strong>{{ promise_one_title | escape }}</strong><span>{{ promise_one_text | escape }}</span></div>
+      <div role="listitem"><strong>{{ promise_two_title | escape }}</strong><span>{{ promise_two_text | escape }}</span></div>
+      <div role="listitem"><strong>{{ promise_three_title | escape }}</strong><span>{{ promise_three_text | escape }}</span></div>
     </div>{% endif %}
   </div>
 </section>
@@ -201,12 +242,35 @@
   ],
   "blocks": [
     { "type": "gallery", "name": "Product gallery", "settings": [] },
-    { "type": "details", "name": "Product details", "settings": [] },
-    { "type": "options", "name": "Variant options", "settings": [] },
-    { "type": "quantity", "name": "Quantity", "settings": [] },
-    { "type": "stock", "name": "Stock status", "settings": [] },
-    { "type": "purchase", "name": "Purchase buttons", "settings": [] },
-    { "type": "promises", "name": "Shipping promises", "settings": [] }
+    { "type": "details", "name": "Product details", "settings": [
+      { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": true },
+      { "type": "text", "id": "review_text", "label": "Review text", "default": "9 reviews" },
+      { "type": "text", "id": "finance_text", "label": "Finance text", "default": "4 interest-free installments available at checkout." },
+      { "type": "text", "id": "shipping_note", "label": "Shipping note", "default": "Free shipping and 30-day returns" }
+    ] },
+    { "type": "options", "name": "Variant options", "settings": [
+      { "type": "checkbox", "id": "show_option_images", "label": "Show option images", "default": true }
+    ] },
+    { "type": "quantity", "name": "Quantity", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Quantity" }
+    ] },
+    { "type": "stock", "name": "Stock status", "settings": [
+      { "type": "text", "id": "in_stock_text", "label": "In stock label", "default": "In stock" },
+      { "type": "text", "id": "low_stock_text", "label": "Low stock label", "default": "Low stock" }
+    ] },
+    { "type": "purchase", "name": "Purchase buttons", "settings": [
+      { "type": "text", "id": "add_label", "label": "Add button label", "default": "Add to cart" },
+      { "type": "text", "id": "sold_label", "label": "Sold out label", "default": "Sold out" },
+      { "type": "text", "id": "buy_label", "label": "Buy now label", "default": "Buy it now" }
+    ] },
+    { "type": "promises", "name": "Shipping promises", "settings": [
+      { "type": "text", "id": "promise_one_title", "label": "Promise 1 title", "default": "USA Based" },
+      { "type": "text", "id": "promise_one_text", "label": "Promise 1 text", "default": "Local support" },
+      { "type": "text", "id": "promise_two_title", "label": "Promise 2 title", "default": "Express Shipping" },
+      { "type": "text", "id": "promise_two_text", "label": "Promise 2 text", "default": "Nationwide delivery" },
+      { "type": "text", "id": "promise_three_title", "label": "Promise 3 title", "default": "Free Returns" },
+      { "type": "text", "id": "promise_three_text", "label": "Promise 3 text", "default": "30-day money back guarantee" }
+    ] }
   ],
   "presets": [{
     "name": "Main Product",
