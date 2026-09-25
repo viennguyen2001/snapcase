@@ -74,7 +74,7 @@
 }
 
 .product-add-button:hover {
-  background: #fff !important;
+  background-color: var(--elare-color) !important;
   scale: .99;
   translate: 0 1px;
 }
@@ -105,7 +105,7 @@
 .button:hover,
 .shopify-payment-button:hover,
 .cart-checkout:hover {
-  background: #fff !important;
+  background-color: #fff !important;
   color: var(--ink) !important;
   scale: .99;
   translate: 0 1px;
@@ -118,7 +118,7 @@
 }
 
 .button.light:hover {
-  background: #fff !important;
+  background-color: var(--elare-color) !important;
   color: #111 !important;
 }
 
@@ -145,7 +145,7 @@
   border: 0;
   border-radius: 8px;
   color: var(--global-button-text, #fff) !important;
-  background: #fff !important;
+  background-color: var(--elare-color) !important;
   box-shadow: inset 0 0 0 2px var(--elare-border);
   background-image: linear-gradient(var(--elare-color), var(--elare-color));
   background-repeat: no-repeat;
@@ -161,7 +161,7 @@
 .cart-checkout:hover,
 .cart-checkout:focus-visible {
   color: var(--elare-hover-text) !important;
-  background: #fff !important;
+  background-color: #fff !important;
   background-image: linear-gradient(var(--elare-color), var(--elare-color));
   background-size: 0% 100%;
   box-shadow: inset 0 0 0 2px var(--elare-border), 0 10px 24px color-mix(in srgb, var(--elare-border) 22%, transparent);
