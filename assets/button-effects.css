@@ -1,0 +1,63 @@
+.button,
+.shopify-payment-button,
+.cart-checkout {
+  --button-effect-color: #353535;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: color .25s ease, border-color .25s ease;
+}
+
+.button::before,
+.button::after,
+.shopify-payment-button::before,
+.shopify-payment-button::after,
+.cart-checkout::before,
+.cart-checkout::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: var(--button-effect-color);
+  transition: transform .35s cubic-bezier(.22, .61, .36, 1);
+}
+
+.button::before,
+.shopify-payment-button::before,
+.cart-checkout::before {
+  left: 0;
+  transform: translateX(-101%);
+}
+
+.button::after,
+.shopify-payment-button::after,
+.cart-checkout::after {
+  right: 0;
+  transform: translateX(101%);
+}
+
+.button:hover::before,
+.button:hover::after,
+.shopify-payment-button:hover::before,
+.shopify-payment-button:hover::after,
+.cart-checkout:hover::before,
+.cart-checkout:hover::after {
+  transform: translateX(0);
+}
+
+.button.light { --button-effect-color: #e8e8e8; }
+.promo-copy .button { --button-effect-color: #5f1c21; }
+.cart-checkout { --button-effect-color: #353535; }
+
+@media (prefers-reduced-motion: reduce) {
+  .button::before,
+  .button::after,
+  .shopify-payment-button::before,
+  .shopify-payment-button::after,
+  .cart-checkout::before,
+  .cart-checkout::after {
+    transition: none;
+  }
+}
