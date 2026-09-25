@@ -13,15 +13,15 @@
   background-image: linear-gradient(var(--button-effect-color), var(--button-effect-color));
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%;
+  background-size: 100% 100% !important;
   border-color: var(--button-effect-color);
   color: #fff;
-  transition: background-size .35s cubic-bezier(.22, .61, .36, 1), color .25s ease, border-color .25s ease;
+  transition: background-size .55s cubic-bezier(.22, .61, .36, 1), color .25s ease, border-color .25s ease !important;
 }
 
 .button:hover {
-  background-color: transparent;
-  background-size: 0% 100%;
+  background-color: transparent !important;
+  background-size: 0% 100% !important;
   color: var(--button-effect-color);
 }
 
