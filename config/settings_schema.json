@@ -6,5 +6,13 @@
     "theme_author": "Custom Studio",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Button colors",
+    "settings": [
+      { "type": "color", "id": "button_fill_color", "label": "Button fill and border color", "default": "#7d000c" },
+      { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#ffffff" },
+      { "type": "color", "id": "button_hover_text_color", "label": "Button hover text color", "default": "#7d000c" }
+    ]
   }
 ]

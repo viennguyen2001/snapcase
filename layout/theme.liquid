@@ -23,6 +23,13 @@
     {{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
     {{ 'button-effects.css' | asset_url | stylesheet_tag }}
     {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+    <style>
+      :root {
+        --global-button-fill: {{ settings.button_fill_color | default: '#7d000c' }};
+        --global-button-text: {{ settings.button_text_color | default: '#ffffff' }};
+        --global-button-hover-text: {{ settings.button_hover_text_color | default: '#7d000c' }};
+      }
+    </style>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <script src="{{ 'slideshow-autoplay.js' | asset_url }}" defer></script>
     <script src="{{ 'product-interactions.js' | asset_url }}" defer></script>

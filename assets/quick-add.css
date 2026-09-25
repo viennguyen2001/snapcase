@@ -135,15 +135,15 @@
 .button,
 .shopify-payment-button,
 .cart-checkout {
-  --elare-color: #7d000c;
-  --elare-hover-text: #7d000c;
+  --elare-color: var(--global-button-fill, #7d000c);
+  --elare-hover-text: var(--global-button-hover-text, #7d000c);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   min-height: 52px;
   border: 0;
   border-radius: 8px;
-  color: #fff !important;
+  color: var(--global-button-text, #fff) !important;
   background: #fff !important;
   box-shadow: inset 0 0 0 2px var(--elare-color);
   background-image: linear-gradient(var(--elare-color), var(--elare-color));
@@ -165,6 +165,15 @@
   background-size: 0% 100%;
   box-shadow: inset 0 0 0 2px var(--elare-color), 0 10px 24px color-mix(in srgb, var(--elare-color) 22%, transparent);
   translate: 0 -2px;
+}
+
+.button:hover > *,
+.button:focus-visible > *,
+.shopify-payment-button:hover > *,
+.shopify-payment-button:focus-visible > *,
+.cart-checkout:hover > *,
+.cart-checkout:focus-visible > * {
+  color: var(--elare-hover-text) !important;
 }
 
 .button.light {
