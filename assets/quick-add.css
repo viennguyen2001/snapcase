@@ -1,0 +1,60 @@
+.product-picture .quick-add {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: auto;
+  display: flex;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid #00000026;
+  border-radius: 50px;
+  background: #ffffffd9;
+  color: var(--ink);
+  opacity: 0;
+  overflow: hidden;
+  backdrop-filter: blur(20px) saturate(180%);
+  transition: width .25s cubic-bezier(.33, 1, .68, 1), opacity .2s ease;
+}
+
+.product-card:hover .product-picture .quick-add,
+.product-picture .quick-add:focus-visible {
+  opacity: 1;
+}
+
+.product-picture .quick-add:hover {
+  width: 132px;
+}
+
+.quick-add-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  height: 100%;
+}
+
+.quick-add-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.quick-add-label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(.5ch);
+  filter: blur(2px);
+  font-size: 12px;
+  font-weight: 600;
+  transition: max-width .25s cubic-bezier(.33, 1, .68, 1), opacity .35s ease, transform .35s ease, filter .35s ease;
+}
+
+.product-picture .quick-add:hover .quick-add-label,
+.product-picture .quick-add:focus-visible .quick-add-label {
+  max-width: 70px;
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
