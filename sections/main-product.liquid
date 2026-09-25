@@ -1,4 +1,33 @@
 {% assign chosen = product.selected_or_first_available_variant %}
+{% assign has_product_blocks = false %}
+{% if section.blocks != blank %}{% assign has_product_blocks = true %}{% endif %}
+{% assign show_gallery = true %}
+{% assign show_details = true %}
+{% assign show_options = true %}
+{% assign show_quantity = true %}
+{% assign show_stock = true %}
+{% assign show_purchase = true %}
+{% assign show_promises = true %}
+{% if has_product_blocks %}
+  {% assign show_gallery = false %}
+  {% assign show_details = false %}
+  {% assign show_options = false %}
+  {% assign show_quantity = false %}
+  {% assign show_stock = false %}
+  {% assign show_purchase = false %}
+  {% assign show_promises = false %}
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'gallery' %}{% assign show_gallery = true %}
+      {% when 'details' %}{% assign show_details = true %}
+      {% when 'options' %}{% assign show_options = true %}
+      {% when 'quantity' %}{% assign show_quantity = true %}
+      {% when 'stock' %}{% assign show_stock = true %}
+      {% when 'purchase' %}{% assign show_purchase = true %}
+      {% when 'promises' %}{% assign show_promises = true %}
+    {% endcase %}
+  {% endfor %}
+{% endif %}
 
 <div class="wrap product-breadcrumb">
   <a href="{{ routes.root_url }}">Home</a>
@@ -11,7 +40,7 @@
 </div>
 
 <section class="wrap section-space product-page product-page--journey">
-  <div class="product-gallery">
+  {% if show_gallery %}<div class="product-gallery">
     <div class="product-gallery-stage">
       {% for media in product.media %}
         <div class="product-media{% unless forloop.first %} product-media--hidden{% endunless %}" data-media-id="{{ media.id }}">
@@ -48,9 +77,10 @@
         {% endfor %}
       </div>
     {% endif %}
-  </div>
+  </div>{% endif %}
 
   <div class="product-info product-info--journey">
+    {% if show_details %}
     {% if product.vendor != blank %}
       <p class="muted product-vendor">{{ product.vendor | escape }}</p>
     {% endif %}
@@ -69,6 +99,7 @@
     {% if section.settings.shipping_note != blank %}
       <p class="product-shipping-note">{{ section.settings.shipping_note | escape }}</p>
     {% endif %}
+    {% endif %}
 
     {% form 'product', product, class: 'product-form' %}
       {{ form.errors | default_errors }}
@@ -86,7 +117,7 @@
         {% endfor %}
       </select>
 
-      {% if product.options_with_values.size > 0 %}
+      {% if show_options and product.options_with_values.size > 0 %}
         <div class="product-options">
           {% for option in product.options_with_values %}
             <fieldset class="product-option">
@@ -114,18 +145,19 @@
         </div>
       {% endif %}
 
-      <label class="product-quantity-label" for="Quantity-{{ section.id }}">{{ 'products.quantity' | t }}</label>
+      {% if show_quantity %}<label class="product-quantity-label" for="Quantity-{{ section.id }}">{{ 'products.quantity' | t }}</label>
       <div class="quantity-control">
         <button type="button" data-quantity-minus aria-label="Decrease quantity">−</button>
         <input id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1" step="1">
         <button type="button" data-quantity-plus aria-label="Increase quantity">+</button>
-      </div>
+      </div>{% endif %}
 
-      <div class="product-stock" data-product-stock>
+      {% if show_stock %}<div class="product-stock" data-product-stock>
         <span class="stock-pill stock-pill--in">● In stock</span>
         <span class="stock-pill stock-pill--low">● Low stock</span>
-      </div>
+      </div>{% endif %}
 
+      {% if show_purchase %}
       <button
         class="button full product-add-button"
         type="submit"
@@ -139,14 +171,14 @@
         <span>{% if chosen.available %}{{ 'products.add' | t }}{% else %}{{ 'products.sold_out' | t }}{% endif %}</span>
       </button>
 
-      <button class="shopify-payment-button" type="submit" name="checkout">Buy it now</button>
+      <button class="shopify-payment-button" type="submit" name="checkout">Buy it now</button>{% endif %}
     {% endform %}
 
-    <div class="product-promises" role="list">
+    {% if show_promises %}<div class="product-promises" role="list">
       <div role="listitem"><strong>{{ section.settings.promise_one_title | escape }}</strong><span>{{ section.settings.promise_one_text | escape }}</span></div>
       <div role="listitem"><strong>{{ section.settings.promise_two_title | escape }}</strong><span>{{ section.settings.promise_two_text | escape }}</span></div>
       <div role="listitem"><strong>{{ section.settings.promise_three_title | escape }}</strong><span>{{ section.settings.promise_three_text | escape }}</span></div>
-    </div>
+    </div>{% endif %}
   </div>
 </section>
 
@@ -167,6 +199,26 @@
     { "type": "text", "id": "description_eyebrow", "label": "Description eyebrow", "default": "The Journey Promise" },
     { "type": "text", "id": "description_heading", "label": "Description heading", "default": "Designed for everyday journeys" }
   ],
-  "presets": [{ "name": "Main Product" }]
+  "blocks": [
+    { "type": "gallery", "name": "Product gallery", "settings": [] },
+    { "type": "details", "name": "Product details", "settings": [] },
+    { "type": "options", "name": "Variant options", "settings": [] },
+    { "type": "quantity", "name": "Quantity", "settings": [] },
+    { "type": "stock", "name": "Stock status", "settings": [] },
+    { "type": "purchase", "name": "Purchase buttons", "settings": [] },
+    { "type": "promises", "name": "Shipping promises", "settings": [] }
+  ],
+  "presets": [{
+    "name": "Main Product",
+    "blocks": [
+      { "type": "gallery" },
+      { "type": "details" },
+      { "type": "options" },
+      { "type": "quantity" },
+      { "type": "stock" },
+      { "type": "purchase" },
+      { "type": "promises" }
+    ]
+  }]
 }
 {% endschema %}

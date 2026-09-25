@@ -1,6 +1,19 @@
 {
   "sections": {
-    "main": { "type": "main-product", "settings": {} },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "gallery": { "type": "gallery", "settings": {} },
+        "details": { "type": "details", "settings": {} },
+        "options": { "type": "options", "settings": {} },
+        "quantity": { "type": "quantity", "settings": {} },
+        "stock": { "type": "stock", "settings": {} },
+        "purchase": { "type": "purchase", "settings": {} },
+        "promises": { "type": "promises", "settings": {} }
+      },
+      "block_order": ["gallery", "details", "options", "quantity", "stock", "purchase", "promises"],
+      "settings": {}
+    },
     "highlights": {
       "type": "product-highlights",
       "blocks": {
