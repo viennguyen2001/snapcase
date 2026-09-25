@@ -8,6 +8,17 @@
   transition: color .25s ease, border-color .25s ease;
 }
 
+.button {
+  background: transparent;
+  border-color: var(--button-effect-color);
+  color: var(--button-effect-color);
+}
+
+.button:hover {
+  background: transparent;
+  color: #fff;
+}
+
 .button::before,
 .button::after,
 .shopify-payment-button::before,
@@ -47,8 +58,9 @@
   transform: translateX(0);
 }
 
-.button.light { --button-effect-color: #e8e8e8; }
-.promo-copy .button { --button-effect-color: #5f1c21; }
+.button.light { --button-effect-color: #fff; }
+.button.light:hover { color: #111; }
+.promo-copy .button { --button-effect-color: #7d252a; }
 .cart-checkout { --button-effect-color: #353535; }
 
 @media (prefers-reduced-motion: reduce) {
