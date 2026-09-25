@@ -9,14 +9,14 @@
 }
 
 .button {
-  background: transparent;
+  background: var(--button-effect-color);
   border-color: var(--button-effect-color);
-  color: var(--button-effect-color);
+  color: #fff;
 }
 
 .button:hover {
   background: transparent;
-  color: #fff;
+  color: var(--button-effect-color);
 }
 
 .button::before,
@@ -39,14 +39,14 @@
 .shopify-payment-button::before,
 .cart-checkout::before {
   left: 0;
-  transform: translateX(-101%);
+  transform: translateX(0);
 }
 
 .button::after,
 .shopify-payment-button::after,
 .cart-checkout::after {
   right: 0;
-  transform: translateX(101%);
+  transform: translateX(0);
 }
 
 .button:hover::before,
@@ -55,11 +55,17 @@
 .shopify-payment-button:hover::after,
 .cart-checkout:hover::before,
 .cart-checkout:hover::after {
-  transform: translateX(0);
+  transform: translateX(var(--button-effect-direction, 101%));
+}
+
+.button:hover::before,
+.shopify-payment-button:hover::before,
+.cart-checkout:hover::before {
+  transform: translateX(-101%);
 }
 
 .button.light { --button-effect-color: #fff; }
-.button.light:hover { color: #111; }
+.button.light:hover { color: #fff; }
 .promo-copy .button { --button-effect-color: #7d252a; }
 .cart-checkout { --button-effect-color: #353535; }
 
