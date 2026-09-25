@@ -221,7 +221,7 @@
         <span>{% if chosen.available %}{{ add_button_label | escape }}{% else %}{{ sold_button_label | escape }}{% endif %}</span>
       </button>
 
-      <button class="shopify-payment-button" type="submit" name="checkout" style="--elare-color: {{ button_fill_color }}; --elare-border: {{ button_border_color }}; --elare-hover-text: {{ button_hover_text_color }}; --global-button-text: {{ button_text_color }};">{{ buy_button_label | escape }}</button>{% endif %}
+      <button class="shopify-payment-button" type="submit" name="checkout" style="--elare-color: {{ button_fill_color }}; --elare-border: {{ button_border_color }}; --elare-hover-text: {{ button_hover_text_color }}; --global-button-text: {{ button_text_color }};"><span>{{ buy_button_label | escape }}</span></button>{% endif %}
     {% endform %}
 
     {% if show_promises %}<div class="product-promises" role="list">

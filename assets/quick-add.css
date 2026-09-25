@@ -154,6 +154,14 @@
   transition: background-size .3s ease, color .3s ease, box-shadow .3s ease, translate .3s ease;
 }
 
+.button:not(:hover):not(:focus-visible),
+.shopify-payment-button:not(:hover):not(:focus-visible),
+.cart-checkout:not(:hover):not(:focus-visible) {
+  color: var(--global-button-text, #fff) !important;
+  background-color: var(--elare-color, #7d000c) !important;
+  background-size: 100% 100% !important;
+}
+
 .button:hover,
 .button:focus-visible,
 .shopify-payment-button:hover,
