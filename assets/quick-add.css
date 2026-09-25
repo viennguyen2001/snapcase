@@ -88,3 +88,93 @@
   width: 20px;
   height: 20px;
 }
+
+/* Use the same Luniora-style interaction for every primary CTA. */
+.button,
+.shopify-payment-button,
+.cart-checkout {
+  background: #ffffffd9 !important;
+  background-image: none !important;
+  border: 2px solid #00000026;
+  border-radius: 50px;
+  color: var(--ink) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  transition: scale .125s cubic-bezier(.33, 1, .68, 1), translate .125s cubic-bezier(.33, 1, .68, 1), background-color .2s ease, color .2s ease;
+}
+
+.button:hover,
+.shopify-payment-button:hover,
+.cart-checkout:hover {
+  background: #fff !important;
+  color: var(--ink) !important;
+  scale: .99;
+  translate: 0 1px;
+}
+
+.button.light {
+  background: #ffffff1a !important;
+  border-color: #fff6;
+  color: #fff !important;
+}
+
+.button.light:hover {
+  background: #fff !important;
+  color: #111 !important;
+}
+
+.button::before,
+.button::after,
+.shopify-payment-button::before,
+.shopify-payment-button::after,
+.cart-checkout::before,
+.cart-checkout::after {
+  display: none !important;
+}
+
+/* Fill-to-outline interaction from the supplied Luniora/Elare reference. */
+.button,
+.shopify-payment-button,
+.cart-checkout {
+  --elare-color: #7d000c;
+  --elare-hover-text: #7d000c;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 52px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff !important;
+  background: #fff !important;
+  box-shadow: inset 0 0 0 2px var(--elare-color);
+  background-image: linear-gradient(var(--elare-color), var(--elare-color));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  transition: background-size .3s ease, color .3s ease, box-shadow .3s ease, translate .3s ease;
+}
+
+.button:hover,
+.button:focus-visible,
+.shopify-payment-button:hover,
+.shopify-payment-button:focus-visible,
+.cart-checkout:hover,
+.cart-checkout:focus-visible {
+  color: var(--elare-hover-text) !important;
+  background: #fff !important;
+  background-image: linear-gradient(var(--elare-color), var(--elare-color));
+  background-size: 0% 100%;
+  box-shadow: inset 0 0 0 2px var(--elare-color), 0 10px 24px color-mix(in srgb, var(--elare-color) 22%, transparent);
+  translate: 0 -2px;
+}
+
+.button.light {
+  --elare-color: #111;
+  --elare-hover-text: #111;
+  color: #fff !important;
+  background-color: #fff !important;
+}
+
+.promo-copy .button {
+  --elare-color: #7d252a;
+  --elare-hover-text: #7d252a;
+}
