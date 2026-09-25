@@ -58,3 +58,33 @@
   transform: translateX(0);
   filter: blur(0);
 }
+
+.product-add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  border: 2px solid #00000026;
+  border-radius: 50px;
+  background: #ffffffd9 !important;
+  color: var(--ink) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  transition: scale .125s cubic-bezier(.33, 1, .68, 1), translate .125s cubic-bezier(.33, 1, .68, 1), background-color .2s ease;
+}
+
+.product-add-button:hover {
+  background: #fff !important;
+  scale: .99;
+  translate: 0 1px;
+}
+
+.product-add-icon {
+  display: inline-grid;
+  place-items: center;
+}
+
+.product-add-icon svg {
+  width: 20px;
+  height: 20px;
+}

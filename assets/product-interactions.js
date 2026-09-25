@@ -37,7 +37,9 @@ function setupProductInteractions(scope = document) {
       if (addButton) {
         const available = match.dataset.available === 'true';
         addButton.disabled = !available;
-        addButton.textContent = available ? addButton.dataset.add : addButton.dataset.sold;
+        const label = addButton.querySelector('span:not(.product-add-icon)');
+        if (label) label.textContent = available ? addButton.dataset.add : addButton.dataset.sold;
+        else addButton.textContent = available ? addButton.dataset.add : addButton.dataset.sold;
       }
     };
 

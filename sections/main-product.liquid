@@ -135,7 +135,8 @@
         data-sold="{{ 'products.sold_out' | t }}"
         {% unless chosen.available %}disabled{% endunless %}
       >
-        {% if chosen.available %}{{ 'products.add' | t }}{% else %}{{ 'products.sold_out' | t }}{% endif %}
+        <span class="product-add-icon">{% render 'icon', name: 'cart' %}</span>
+        <span>{% if chosen.available %}{{ 'products.add' | t }}{% else %}{{ 'products.sold_out' | t }}{% endif %}</span>
       </button>
 
       <button class="shopify-payment-button" type="submit" name="checkout">Buy it now</button>
