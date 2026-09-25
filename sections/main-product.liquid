@@ -19,6 +19,10 @@
 {% assign add_button_label = 'Add to cart' %}
 {% assign sold_button_label = 'Sold out' %}
 {% assign buy_button_label = 'Buy it now' %}
+{% assign button_fill_color = settings.button_fill_color | default: '#7d000c' %}
+{% assign button_border_color = settings.button_border_color | default: '#7d000c' %}
+{% assign button_text_color = settings.button_text_color | default: '#ffffff' %}
+{% assign button_hover_text_color = settings.button_hover_text_color | default: '#7d000c' %}
 {% assign promise_one_title = section.settings.promise_one_title %}
 {% assign promise_one_text = section.settings.promise_one_text %}
 {% assign promise_two_title = section.settings.promise_two_title %}
@@ -58,6 +62,10 @@
       {% assign add_button_label = block.settings.add_label | default: 'Add to cart' %}
       {% assign sold_button_label = block.settings.sold_label | default: 'Sold out' %}
       {% assign buy_button_label = block.settings.buy_label | default: 'Buy it now' %}
+      {% assign button_fill_color = block.settings.fill_color | default: button_fill_color %}
+      {% assign button_border_color = block.settings.border_color | default: button_border_color %}
+      {% assign button_text_color = block.settings.text_color | default: button_text_color %}
+      {% assign button_hover_text_color = block.settings.hover_text_color | default: button_hover_text_color %}
     {% elsif block.type == 'promises' %}
       {% assign promise_one_title = block.settings.promise_one_title | default: section.settings.promise_one_title %}
       {% assign promise_one_text = block.settings.promise_one_text | default: section.settings.promise_one_text %}
@@ -206,13 +214,14 @@
         data-add-button
         data-add="{{ add_button_label | escape }}"
         data-sold="{{ sold_button_label | escape }}"
+        style="--elare-color: {{ button_fill_color }}; --elare-border: {{ button_border_color }}; --elare-hover-text: {{ button_hover_text_color }}; --global-button-text: {{ button_text_color }};"
         {% unless chosen.available %}disabled{% endunless %}
       >
         <span class="product-add-icon">{% render 'icon', name: 'cart' %}</span>
         <span>{% if chosen.available %}{{ add_button_label | escape }}{% else %}{{ sold_button_label | escape }}{% endif %}</span>
       </button>
 
-      <button class="shopify-payment-button" type="submit" name="checkout">{{ buy_button_label | escape }}</button>{% endif %}
+      <button class="shopify-payment-button" type="submit" name="checkout" style="--elare-color: {{ button_fill_color }}; --elare-border: {{ button_border_color }}; --elare-hover-text: {{ button_hover_text_color }}; --global-button-text: {{ button_text_color }};">{{ buy_button_label | escape }}</button>{% endif %}
     {% endform %}
 
     {% if show_promises %}<div class="product-promises" role="list">
@@ -261,7 +270,11 @@
     { "type": "purchase", "name": "Purchase buttons", "settings": [
       { "type": "text", "id": "add_label", "label": "Add button label", "default": "Add to cart" },
       { "type": "text", "id": "sold_label", "label": "Sold out label", "default": "Sold out" },
-      { "type": "text", "id": "buy_label", "label": "Buy now label", "default": "Buy it now" }
+      { "type": "text", "id": "buy_label", "label": "Buy now label", "default": "Buy it now" },
+      { "type": "color", "id": "fill_color", "label": "Fill color", "default": "#7d000c" },
+      { "type": "color", "id": "border_color", "label": "Border color", "default": "#7d000c" },
+      { "type": "color", "id": "text_color", "label": "Text color", "default": "#ffffff" },
+      { "type": "color", "id": "hover_text_color", "label": "Hover text color", "default": "#7d000c" }
     ] },
     { "type": "promises", "name": "Shipping promises", "settings": [
       { "type": "text", "id": "promise_one_title", "label": "Promise 1 title", "default": "USA Based" },

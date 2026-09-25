@@ -136,6 +136,7 @@
 .shopify-payment-button,
 .cart-checkout {
   --elare-color: var(--global-button-fill, #7d000c);
+  --elare-border: var(--global-button-border, #7d000c);
   --elare-hover-text: var(--global-button-hover-text, #7d000c);
   position: relative;
   isolation: isolate;
@@ -145,7 +146,7 @@
   border-radius: 8px;
   color: var(--global-button-text, #fff) !important;
   background: #fff !important;
-  box-shadow: inset 0 0 0 2px var(--elare-color);
+  box-shadow: inset 0 0 0 2px var(--elare-border);
   background-image: linear-gradient(var(--elare-color), var(--elare-color));
   background-repeat: no-repeat;
   background-position: center;
@@ -163,7 +164,7 @@
   background: #fff !important;
   background-image: linear-gradient(var(--elare-color), var(--elare-color));
   background-size: 0% 100%;
-  box-shadow: inset 0 0 0 2px var(--elare-color), 0 10px 24px color-mix(in srgb, var(--elare-color) 22%, transparent);
+  box-shadow: inset 0 0 0 2px var(--elare-border), 0 10px 24px color-mix(in srgb, var(--elare-border) 22%, transparent);
   translate: 0 -2px;
 }
 

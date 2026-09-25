@@ -10,7 +10,8 @@
   {
     "name": "Button colors",
     "settings": [
-      { "type": "color", "id": "button_fill_color", "label": "Button fill and border color", "default": "#7d000c" },
+      { "type": "color", "id": "button_fill_color", "label": "Button fill color", "default": "#7d000c" },
+      { "type": "color", "id": "button_border_color", "label": "Button border color", "default": "#7d000c" },
       { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#ffffff" },
       { "type": "color", "id": "button_hover_text_color", "label": "Button hover text color", "default": "#7d000c" }
     ]
